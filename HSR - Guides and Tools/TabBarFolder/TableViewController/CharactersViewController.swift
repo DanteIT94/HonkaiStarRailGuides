@@ -21,14 +21,19 @@ class CharactesViewController: UIViewController {
     }()
     
     
-//    private var downloadedIconCount: Int = 0
-//
+    let firebaseManager = FirebaseManager()
     private var characters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureCharacterTableView()
+        firebaseManager.fetchCharacters { [weak self] (loadedCharacters) in
+            self?.characters = loadedCharacters
+            DispatchQueue.main.async {
+                self?.charactersTableView.reloadData()
+            }
+        }
         
     }
     
@@ -62,7 +67,7 @@ class CharactesViewController: UIViewController {
         charactersTableView.delegate = self
         
         charactersTableView.register(CharacterCell.self, forCellReuseIdentifier: "CharacterCell")
-        charactersTableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0 )
+        charactersTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0 )
         
         NSLayoutConstraint.activate([
             charactersTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -103,15 +108,15 @@ class CharactesViewController: UIViewController {
 //MARK:  -UITableViewDataSource
 extension CharactesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-//        characters.count
+        characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
             return UITableViewCell()
         }
-//        cell.character = characters[indexPath.row]
+        let character = characters[indexPath.row]
+        cell.configure(with: character)
         
         return cell
     }

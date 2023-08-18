@@ -6,43 +6,46 @@
 //
 
 import Foundation
-import UIKit
-import Firebase
 import FirebaseStorage
 import FirebaseDatabase
+import UIKit
+import Firebase
 
-class APIManager {
-    static let shared = APIManager()
-    
-    private func configureFB() -> Firestore {
-        var dataBase: Firestore!
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-        dataBase = Firestore.firestore()
-        return dataBase
+class FirebaseManager {
+    var databaseReference: DatabaseReference!
+    var characters: [Character] = []
+
+    init() {
+        databaseReference = Database.database().reference()
     }
-    
-    func getPost(collection: String, docName: String, completion: @escaping (Character?) -> Void) {
-//        let dataBase = configureFB()
-//        dataBase.collection(collection).document(docName).getDocument(completion: { (document, error) in
-//            guard error == nil else { completion(nil); return }
-//            let doc = Character(id: <#T##String#>, name: <#T##[String : String]#>, element: <#T##Element#>, specializationIconURL: <#T##String#>, characterIconURL: <#T##String#>)
-//            completion(doc)
-//        })
-    }
-    
-    func getImage(picName: String, completion: @escaping (UIImage) -> Void) {
-        let storage = Storage.storage()
-        let reference = storage.reference()
-        let pathRef = reference.child("pictures")
-        
-        var image: UIImage = UIImage(named: "default_pic")!
-        
-        let fileRef = pathRef.child(picName + ".jpeg")
-        fileRef.getData(maxSize: 1024*1024, completion: { data, error in
-            guard error == nil else { completion(image); return }
-            image = UIImage(data: data!)!
-            completion(image)
-        })
+
+    func fetchCharacters(completion: @escaping ([Character]) -> Void) {
+        databaseReference.child("characters").observe(.value) { (snapshot) in
+            var loadedCharacters: [Character] = []
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                   let dict = childSnapshot.value as? [String: Any],
+                   let name = dict["name"] as? String,
+                   let elementURL = dict["element"] as? String,
+                   let iconImageURL = dict["iconImage"] as? String,
+                   let pathURL = dict["path"] as? String {
+                    
+                    let fullImageURL = dict["fullImage"] as? String
+                    
+                    let character = Character(id: childSnapshot.key,
+                                              name: name,
+                                              elementURL: elementURL,
+                                              fullImageURL: fullImageURL,
+                                              iconImageURL: iconImageURL,
+                                              pathURL: pathURL)
+                    loadedCharacters.append(character)
+                }
+            }
+
+            self.characters = loadedCharacters
+            completion(loadedCharacters)
+        }
     }
 }
+

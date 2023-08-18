@@ -6,6 +6,7 @@
 
 import UIKit
 import FirebaseStorage
+import SDWebImage
 
 final class CharacterCell: UITableViewCell {
     
@@ -98,4 +99,16 @@ final class CharacterCell: UITableViewCell {
             specializationIcon.heightAnchor.constraint(equalToConstant: 60)// Пример
         ])
     }
+    
+    //ОСТАНОВИЛСЯ ТУТ + Смотри в ЧАТ ГПТ)
+    func configure(with character: Character) {
+        characterName.text = character.name
+        
+        characterIcon.sd_setImage(with: URL(string: character.iconImageURL), placeholderImage: UIImage(named: "default_char"))
+        elementIcon.sd_setImage(with: URL(string: character.elementURL), placeholderImage: UIImage(named: "default_elem"))
+        specializationIcon.sd_setImage(with: URL(string: character.pathURL), placeholderImage: UIImage(named: "default_spec"))
+        
+//        self.backgroundColor = character.elementType.color
+    }
+    
 }

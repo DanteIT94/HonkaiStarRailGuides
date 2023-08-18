@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920BE3662A8FCA11009B2F43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */; };
 		9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2052A8CC37E0020D766 /* AppDelegate.swift */; };
 		9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2072A8CC37E0020D766 /* SceneDelegate.swift */; };
-		9266D20A2A8CC37E0020D766 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2092A8CC37E0020D766 /* TableViewController.swift */; };
 		9266D20F2A8CC37F0020D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9266D20E2A8CC37F0020D766 /* Assets.xcassets */; };
 		9266D2122A8CC37F0020D766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9266D2102A8CC37F0020D766 /* LaunchScreen.storyboard */; };
 		9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */; };
@@ -24,16 +24,16 @@
 		9266D2302A8CE4B80020D766 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D22F2A8CE4B80020D766 /* FirebaseFirestoreSwift */; };
 		9266D2322A8CE4B80020D766 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2312A8CE4B80020D766 /* FirebaseStorage */; };
 		9266D2342A8CE4B80020D766 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2332A8CE4B80020D766 /* FirebaseStorageCombine-Community */; };
-		9266D2362A8CEE3E0020D766 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9266D2352A8CEE3E0020D766 /* GoogleService-Info.plist */; };
 		9266D2392A8CF1760020D766 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* APIManager.swift */; };
 		9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D23A2A8CF2550020D766 /* CharacterParcing.swift */; };
+		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR - Guides and Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9266D2052A8CC37E0020D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9266D2072A8CC37E0020D766 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9266D2092A8CC37E0020D766 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9266D20E2A8CC37F0020D766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9266D2112A8CC37F0020D766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9266D2132A8CC37F0020D766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,6 @@
 		9266D2202A8CC7920020D766 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		9266D2222A8CC8400020D766 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9266D2242A8CD5CD0020D766 /* CharacterModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelView.swift; sourceTree = "<group>"; };
-		9266D2352A8CEE3E0020D766 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9266D2382A8CF1760020D766 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9266D23A2A8CF2550020D766 /* CharacterParcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterParcing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +53,7 @@
 			files = (
 				9266D2302A8CE4B80020D766 /* FirebaseFirestoreSwift in Frameworks */,
 				9266D2342A8CE4B80020D766 /* FirebaseStorageCombine-Community in Frameworks */,
+				9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */,
 				9266D22A2A8CE4B80020D766 /* FirebaseDatabase in Frameworks */,
 				9266D22E2A8CE4B80020D766 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				9266D2282A8CE4B80020D766 /* FirebaseAuth in Frameworks */,
@@ -65,6 +65,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CharacterGuideVC;
+			sourceTree = "<group>";
+		};
 		9266D1F92A8CC37E0020D766 = {
 			isa = PBXGroup;
 			children = (
@@ -88,11 +95,10 @@
 				9266D2192A8CC4850020D766 /* TabBarFolder */,
 				9266D2052A8CC37E0020D766 /* AppDelegate.swift */,
 				9266D2072A8CC37E0020D766 /* SceneDelegate.swift */,
-				9266D2092A8CC37E0020D766 /* TableViewController.swift */,
 				9266D20E2A8CC37F0020D766 /* Assets.xcassets */,
 				9266D2102A8CC37F0020D766 /* LaunchScreen.storyboard */,
 				9266D2132A8CC37F0020D766 /* Info.plist */,
-				9266D2352A8CEE3E0020D766 /* GoogleService-Info.plist */,
+				920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */,
 			);
 			path = "HSR - Guides and Tools";
 			sourceTree = "<group>";
@@ -100,9 +106,9 @@
 		9266D2192A8CC4850020D766 /* TabBarFolder */ = {
 			isa = PBXGroup;
 			children = (
+				9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */,
 				9266D21A2A8CC4AD0020D766 /* TableViewController */,
 				9266D21B2A8CC4C50020D766 /* OptionsViewController */,
-				9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */,
 			);
 			path = TabBarFolder;
 			sourceTree = "<group>";
@@ -113,6 +119,7 @@
 				9266D21E2A8CC7460020D766 /* CharactersViewController.swift */,
 				9266D2202A8CC7920020D766 /* CharacterCell.swift */,
 				9266D2242A8CD5CD0020D766 /* CharacterModelView.swift */,
+				920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 				9266D22F2A8CE4B80020D766 /* FirebaseFirestoreSwift */,
 				9266D2312A8CE4B80020D766 /* FirebaseStorage */,
 				9266D2332A8CE4B80020D766 /* FirebaseStorageCombine-Community */,
+				9266D23D2A8E15490020D766 /* SDWebImage */,
 			);
 			productName = "HSR - Guides and Tools";
 			productReference = 9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */;
@@ -189,6 +197,7 @@
 			mainGroup = 9266D1F92A8CC37E0020D766;
 			packageReferences = (
 				9266D2262A8CE4B80020D766 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 9266D2032A8CC37E0020D766 /* Products */;
 			projectDirPath = "";
@@ -205,8 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9266D2122A8CC37F0020D766 /* LaunchScreen.storyboard in Resources */,
+				920BE3662A8FCA11009B2F43 /* GoogleService-Info.plist in Resources */,
 				9266D20F2A8CC37F0020D766 /* Assets.xcassets in Resources */,
-				9266D2362A8CEE3E0020D766 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +229,6 @@
 				9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */,
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
-				9266D20A2A8CC37E0020D766 /* TableViewController.swift in Sources */,
 				9266D2392A8CF1760020D766 /* APIManager.swift in Sources */,
 				9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */,
 				9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */,
@@ -452,6 +460,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -489,6 +505,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9266D2262A8CE4B80020D766 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		9266D23D2A8E15490020D766 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
