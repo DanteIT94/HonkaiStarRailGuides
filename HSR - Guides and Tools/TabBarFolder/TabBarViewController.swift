@@ -18,8 +18,8 @@ final class TabBarViewController: UITabBarController {
     
     //MARK: -Private Methods
     private func createTabViewController() {
-        tabBar.barTintColor = .blue
-        tabBar.backgroundColor = .black
+        tabBar.barTintColor = .clear
+        tabBar.backgroundColor = .clear
         
         
         let characterVC = CharactesViewController()

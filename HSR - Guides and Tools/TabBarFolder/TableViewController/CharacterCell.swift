@@ -71,10 +71,10 @@ final class CharacterCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
             // 1. Отступы для cellUIView
-            cellUIView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            cellUIView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            cellUIView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            cellUIView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cellUIView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            cellUIView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            cellUIView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellUIView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
             // 2. Элементы по центру
             characterIcon.centerYAnchor.constraint(equalTo: cellUIView.centerYAnchor),
@@ -107,8 +107,16 @@ final class CharacterCell: UITableViewCell {
         characterIcon.sd_setImage(with: URL(string: character.iconImageURL), placeholderImage: UIImage(named: "default_char"))
         elementIcon.sd_setImage(with: URL(string: character.elementURL), placeholderImage: UIImage(named: "default_elem"))
         specializationIcon.sd_setImage(with: URL(string: character.pathURL), placeholderImage: UIImage(named: "default_spec"))
+        [characterIcon, elementIcon, specializationIcon, cellUIView
+        ].forEach {
+            $0.layer.cornerRadius = 30
+        }
+        [characterIcon, elementIcon, specializationIcon
+        ].forEach {
+            $0.clipsToBounds = true
+        }
         
-//        self.backgroundColor = character.elementType.color
+        cellUIView.backgroundColor = character.elementType.color
     }
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920BE3662A8FCA11009B2F43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */; };
+		920BE36A2A9015A3009B2F43 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */; };
 		9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2052A8CC37E0020D766 /* AppDelegate.swift */; };
 		9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2072A8CC37E0020D766 /* SceneDelegate.swift */; };
 		9266D20F2A8CC37F0020D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9266D20E2A8CC37F0020D766 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR - Guides and Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9266D2052A8CC37E0020D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9266D2072A8CC37E0020D766 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 			path = CharacterGuideVC;
 			sourceTree = "<group>";
 		};
+		920BE3682A901577009B2F43 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9266D1F92A8CC37E0020D766 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 				9266D2052A8CC37E0020D766 /* AppDelegate.swift */,
 				9266D2072A8CC37E0020D766 /* SceneDelegate.swift */,
 				9266D20E2A8CC37F0020D766 /* Assets.xcassets */,
+				920BE3682A901577009B2F43 /* Helpers */,
 				9266D2102A8CC37F0020D766 /* LaunchScreen.storyboard */,
 				9266D2132A8CC37F0020D766 /* Info.plist */,
 				920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */,
@@ -235,6 +246,7 @@
 				9266D2252A8CD5CD0020D766 /* CharacterModelView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
 				9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */,
+				920BE36A2A9015A3009B2F43 /* UIColor + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
