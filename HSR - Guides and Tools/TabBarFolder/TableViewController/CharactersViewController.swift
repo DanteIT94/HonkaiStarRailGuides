@@ -13,10 +13,20 @@ class CharactesViewController: UIViewController {
     
     //MARK: - Private Properties
     
+    private let backgroundImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "1581410453_2")
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     private let charactersTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = 100
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -61,6 +71,7 @@ class CharactesViewController: UIViewController {
     
     
     private func configureCharacterTableView() {
+        view.insertSubview(backgroundImage, at: 0)
         view.addSubview(charactersTableView)
         
         charactersTableView.dataSource = self
@@ -70,6 +81,10 @@ class CharactesViewController: UIViewController {
         charactersTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0 )
         
         NSLayoutConstraint.activate([
+            backgroundImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             charactersTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             charactersTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             charactersTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -78,23 +93,23 @@ class CharactesViewController: UIViewController {
     }
     
     //MARK: - Methods
-//    private func loadCharacterIcon(from url: URL, into cell: CharacterCell) {
-//        let storageReference = Storage.storage().reference(forURL: url.absoluteString)
-//
-//        storageReference.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
-//            guard let imageData = data, error == nil else {
-//                // Handle the error
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                cell.characterIconImageView.image = UIImage(data: imageData)
-//
-//                // Increase the downloadedIconCount after successful image download
-//                self?.downloadedIconCount += 1
-//            }
-//        }
-//    }
+    //    private func loadCharacterIcon(from url: URL, into cell: CharacterCell) {
+    //        let storageReference = Storage.storage().reference(forURL: url.absoluteString)
+    //
+    //        storageReference.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
+    //            guard let imageData = data, error == nil else {
+    //                // Handle the error
+    //                return
+    //            }
+    //
+    //            DispatchQueue.main.async {
+    //                cell.characterIconImageView.image = UIImage(data: imageData)
+    //
+    //                // Increase the downloadedIconCount after successful image download
+    //                self?.downloadedIconCount += 1
+    //            }
+    //        }
+    //    }
     
     
     //MARK: -@OBJC Methods
@@ -115,6 +130,8 @@ extension CharactesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
             return UITableViewCell()
         }
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         let character = characters[indexPath.row]
         cell.configure(with: character)
         
@@ -126,7 +143,9 @@ extension CharactesViewController: UITableViewDataSource {
 
 //MARK:  -UITableViewDelegate
 extension CharactesViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 

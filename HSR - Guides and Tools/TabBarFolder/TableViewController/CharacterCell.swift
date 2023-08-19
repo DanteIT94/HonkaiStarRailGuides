@@ -60,6 +60,8 @@ final class CharacterCell: UITableViewCell {
     
     
     func configCellLayout() {
+        self.backgroundColor = .clear
+        contentView.backgroundColor = .clear
         contentView.addSubview(cellUIView)
         cellUIView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -116,7 +118,8 @@ final class CharacterCell: UITableViewCell {
             $0.clipsToBounds = true
         }
         
-        cellUIView.backgroundColor = character.elementType.color
+        cellUIView.backgroundColor = .white
+//        character.elementType.color
     }
     
 }
