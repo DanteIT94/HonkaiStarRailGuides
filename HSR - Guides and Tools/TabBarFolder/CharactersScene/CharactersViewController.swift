@@ -145,6 +145,10 @@ extension CharactesViewController: UITableViewDataSource {
 extension CharactesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let characterVC = CharacterGuideVC()
+        characterVC.modalPresentationStyle = .fullScreen
+        present(characterVC, animated: true)
     }
     
 }

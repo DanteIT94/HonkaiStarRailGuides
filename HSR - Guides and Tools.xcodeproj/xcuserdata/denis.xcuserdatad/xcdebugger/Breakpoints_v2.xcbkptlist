@@ -243,5 +243,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E651513-B3E5-4BE6-8A6E-E62C2D128CAE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HSR - Guides and Tools/TabBarFolder/TableViewController/CharacterGuideVC/CharacterGuideViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "closeCurrentVC(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E651513-B3E5-4BE6-8A6E-E62C2D128CAE - 1a50c4b9a432e13d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HSR___Guides_and_Tools.CharacterGuideVC.closeCurrentVC(Any) -&gt; ()"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/TableViewController/CharacterGuideVC/CharacterGuideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "7E651513-B3E5-4BE6-8A6E-E62C2D128CAE - 1a50c4b9a432e0dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HSR___Guides_and_Tools.CharacterGuideVC.closeCurrentVC(Any) -&gt; ()"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/TableViewController/CharacterGuideVC/CharacterGuideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
