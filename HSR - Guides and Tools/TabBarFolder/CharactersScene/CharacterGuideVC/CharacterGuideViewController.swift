@@ -5,8 +5,8 @@
 //  Created by Денис on 19.08.2023.
 //
 
-import Foundation
 import UIKit
+import SDWebImage
 
 final class CharacterGuideVC: UIViewController {
     
@@ -43,7 +43,7 @@ final class CharacterGuideVC: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "fullImage_default")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 16
         imageView.clipsToBounds = true
         return imageView
@@ -56,14 +56,24 @@ final class CharacterGuideVC: UIViewController {
         return charStackView
     }()
     
+    private var currentCharacter: Character?
+    
+    init(character: Character) {
+        self.currentCharacter = character
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         configLayout()
+        loadData()
     }
-    
     
     private func configLayout() {
         view.addSubview(scrollView)
@@ -102,6 +112,15 @@ final class CharacterGuideVC: UIViewController {
             characterVersionState.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             characterVersionState.bottomAnchor.constraint(equalTo: characterImageView.bottomAnchor)
         ])
+    }
+    
+    ///Метод для получения данных о персонаже
+    private func loadData() {
+        self.characterNameLabel.text = currentCharacter?.name
+        if let URLString = currentCharacter?.fullImageURL, let url = URL(string: URLString) {
+            self.characterImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "main_logo"))
+        }
+        
     }
     
     @objc private func closeCurrentVC(_ sender: Any) {
