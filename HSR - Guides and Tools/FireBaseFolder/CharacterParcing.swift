@@ -33,6 +33,30 @@ struct Relics: Codable {
     let thirdRelic: Item
 }
 
+struct Weapons: Codable {
+    let firstWeapon: Item
+    let secondWeapon: Item
+    let thirdWeapon: Item
+}
+
+struct Item: Codable {
+    let comment: String
+    let description: String
+    let image: String
+    let name: String
+}
+
+extension Item {
+    static func from(dict: [String: String]) -> Item {
+        return Item(
+            comment: dict["comment"] ?? "",
+            description: dict["description"] ?? "",
+            image: dict["image"] ?? "",
+            name: dict ["name"] ?? ""
+        )
+    }
+}
+
 struct Stats: Codable {
     let additionalStats: AdditionalStats?
     let mainStats: MainStats?
@@ -72,29 +96,7 @@ extension Stat {
     }
 }
 
-struct Weapons: Codable {
-    let firstWeapon: Item
-    let secondWeapon: Item
-    let thirdWeapon: Item
-}
 
-struct Item: Codable {
-    let comment: String
-    let description: String
-    let image: String
-    let name: String
-}
-
-extension Item {
-    static func from(dict: [String: String]) -> Item {
-        return Item(
-            comment: dict["comment"] ?? "",
-            description: dict["description"] ?? "",
-            image: dict["image"] ?? "",
-            name: dict ["name"] ?? ""
-        )
-    }
-}
 
 struct BasicInfo: Codable {
     let gamePatch: String
