@@ -21,7 +21,7 @@ class CharactersViewController: UIViewController {
     
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "1581410453_2")
+        image.image = UIImage(named: "backgroundImage")
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -36,7 +36,6 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
-//    let firebaseManager = FirebaseManager()
     var presenter: CharacterPresenterProtocol?
     private var characters: [Character] = []
     
@@ -46,12 +45,7 @@ class CharactersViewController: UIViewController {
         configureNavigationBar()
         configureCharacterTableView()
         presenter?.viewDidLoad()
-//        firebaseManager.fetchCharacters { [weak self] (loadedCharacters) in
-//            self?.characters = loadedCharacters
-//            DispatchQueue.main.async {
-//                self?.charactersTableView.reloadData()
-//            }
-//        }
+
     }
     
     //MARK: -Private Methods
@@ -144,7 +138,6 @@ extension CharactersViewController: UITableViewDataSource {
         if let character = presenter?.characterAtIndexPath(indexPath) {
                 cell.configure(with: character)
         }
-        print(characters)
         return cell
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VerticalLabelsStackView: UIStackView {
+final class VerticalLabelsStackView: UIStackView {
     
     private var labels: [UILabel] = []
     
@@ -58,6 +58,17 @@ class VerticalLabelsStackView: UIStackView {
         self.distribution = .fillEqually
         self.alignment = .fill
         self.spacing = 0
+    }
+    
+    func updateLabels(with texts: [String]) {
+        guard texts.count == labels.count else {
+            print("Колличество текстов должно соответствовать количеству лейблов")
+            return
+        }
+        
+        for (index, newText) in texts.enumerated() {
+            labels[index].text = newText
+        }
     }
     
 }

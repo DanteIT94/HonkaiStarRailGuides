@@ -43,15 +43,15 @@ final class CharacterGuideVC: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "fullImage_default")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.clipsToBounds = true
         return imageView
     }()
     
     ///Окно состояния персонажа на текущую версию
-    private let characterVersionState: VerticalLabelsStackView = {
-        let charStackView = VerticalLabelsStackView(labelsText: ["Тир (Патч: ...)", "label2", "Роль в команде", "label4", "Редкость", "label6"])
+    private var characterVersionState: VerticalLabelsStackView = {
+        let charStackView = VerticalLabelsStackView(labelsText: ["Тир (Патч: N/A)", "N/A", "Роль в команде", "N/A", "Редкость", "N/A"])
         charStackView.translatesAutoresizingMaskIntoConstraints = false
         return charStackView
     }()
@@ -121,6 +121,15 @@ final class CharacterGuideVC: UIViewController {
             self.characterImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "main_logo"))
         }
         
+        let newInfoData = [
+            "Тир (Патч: \(currentCharacter?.basicInfo?.gamePatch ?? "N/A"))",
+            "\(currentCharacter?.basicInfo?.tier ?? "N/A")",
+            "Роль в команде:",
+            "\(currentCharacter?.basicInfo?.role ?? "N/A")",
+            "Редкость: ",
+            "\(currentCharacter?.basicInfo?.rarity ?? "N/A")"
+        ]
+        characterVersionState.updateLabels(with: newInfoData)
     }
     
     @objc private func closeCurrentVC(_ sender: Any) {

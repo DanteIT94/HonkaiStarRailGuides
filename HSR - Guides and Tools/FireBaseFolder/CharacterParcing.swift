@@ -8,13 +8,99 @@
 import Foundation
 import UIKit
 
-struct Character {
-    let id: String
+struct Character: Codable {
+    var id: String?
     let name: String
     let elementURL: String
     let fullImageURL: String?
     let iconImageURL: String
     let pathURL: String
+    let planars: Planars?
+    let relics: Relics?
+    let stats: Stats?
+    let weapons: Weapons?
+    let basicInfo: BasicInfo?
+}
+
+struct Planars: Codable {
+    let firstPlanar: Item
+    let secondPlanar: Item
+}
+
+struct Relics: Codable {
+    let firstRelic: Item
+    let secondRelic: Item
+    let thirdRelic: Item
+}
+
+struct Stats: Codable {
+    let additionalStats: AdditionalStats?
+    let mainStats: MainStats?
+}
+
+struct AdditionalStats: Codable {
+    let value: String
+}
+
+struct MainStats: Codable {
+    let body: Stat?
+    let chain: Stat?
+    let foot: Stat?
+    let sphere: Stat?
+}
+
+extension MainStats {
+    static func from(dict: [String : [String: String]]) -> MainStats {
+        return MainStats(
+            body: Stat.from(dict: dict["body"] ?? [:]),
+            chain: Stat.from(dict: dict["chain"] ?? [:]),
+            foot: Stat.from(dict: dict["foot"] ?? [:]),
+            sphere: Stat.from(dict: dict["sphere"] ?? [:])
+        )
+    }
+}
+
+struct Stat: Codable {
+    let image: String
+    let value: String
+}
+
+extension Stat {
+    static func from(dict: [String: String]) -> Stat {
+        return Stat(image: dict["image"] ?? "",
+                    value: dict["value"] ?? "")
+    }
+}
+
+struct Weapons: Codable {
+    let firstWeapon: Item
+    let secondWeapon: Item
+    let thirdWeapon: Item
+}
+
+struct Item: Codable {
+    let comment: String
+    let description: String
+    let image: String
+    let name: String
+}
+
+extension Item {
+    static func from(dict: [String: String]) -> Item {
+        return Item(
+            comment: dict["comment"] ?? "",
+            description: dict["description"] ?? "",
+            image: dict["image"] ?? "",
+            name: dict ["name"] ?? ""
+        )
+    }
+}
+
+struct BasicInfo: Codable {
+    let gamePatch: String
+    let rarity: String
+    let role: String
+    let tier: String
 }
 
 
