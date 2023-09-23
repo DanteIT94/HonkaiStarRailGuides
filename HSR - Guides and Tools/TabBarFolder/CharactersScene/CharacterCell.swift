@@ -19,7 +19,6 @@ final class CharacterCell: UITableViewCell {
     let characterIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        // ... другие настройки, если они нужны
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "default_char")
         return imageView
