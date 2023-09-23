@@ -17,18 +17,23 @@ final class itemView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var commentLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -72,6 +77,11 @@ final class itemView: UIView {
             commentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             commentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             commentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: mainStack.trailingAnchor),
+            commentLabel.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 100),
+            imageView.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     

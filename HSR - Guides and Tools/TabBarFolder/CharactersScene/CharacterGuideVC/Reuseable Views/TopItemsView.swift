@@ -53,6 +53,7 @@ final class TopItemsView: UIView {
                 itemView.imageView.sd_setImage(with: url, completed: nil)
             }
             stackView.addArrangedSubview(itemView)
+            
         }
     }
     

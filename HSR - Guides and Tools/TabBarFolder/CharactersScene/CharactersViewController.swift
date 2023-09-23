@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseStorage
 
 protocol CharactersView: AnyObject {
     func reloadData()
@@ -116,8 +115,7 @@ extension CharactersViewController: CharactersView {
     
     func presentCharacterGuideVC(character: Character) {
         let characterVC = CharacterGuideVC(character: character)
-        characterVC.modalPresentationStyle = .fullScreen
-        present(characterVC, animated: true)
+        navigationController?.pushViewController(characterVC, animated: true)
     }
 }
 
