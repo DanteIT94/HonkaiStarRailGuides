@@ -35,7 +35,12 @@ final class CharacterGuideVC: UIViewController {
     
     ///Окно состояния персонажа на текущую версию
     private var characterVersionState: VerticalLabelsStackView = {
-        let charStackView = VerticalLabelsStackView(labelsText: ["Тир (Патч: N/A)", "N/A", "Роль в команде", "N/A", "Редкость", "N/A"])
+        let charStackView = VerticalLabelsStackView(labelsText: ["Тир (Патч: N/A)",
+                                                                 "N/A",
+                                                                 "Роль в команде",
+                                                                 "N/A",
+                                                                 "Редкость",
+                                                                 "N/A"])
         charStackView.translatesAutoresizingMaskIntoConstraints = false
         return charStackView
     }()
