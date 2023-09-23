@@ -10,8 +10,10 @@
 		920BE3662A8FCA11009B2F43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */; };
 		920BE36A2A9015A3009B2F43 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */; };
 		920BE36F2A90C681009B2F43 /* CharacterGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE36E2A90C681009B2F43 /* CharacterGuideViewController.swift */; };
-		920BE3722A90EDD3009B2F43 /* VerticalLabelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE3712A90EDD3009B2F43 /* VerticalLabelStackView.swift */; };
-		920BE3742A913254009B2F43 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE3732A913254009B2F43 /* Weapon.swift */; };
+		920BE3722A90EDD3009B2F43 /* VerticalLabelsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BE3712A90EDD3009B2F43 /* VerticalLabelsStackView.swift */; };
+		924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */; };
+		924849D02ABCC24300433452 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849CF2ABCC24300433452 /* ItemView.swift */; };
+		924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849D12ABDF9EB00433452 /* TopItemsView.swift */; };
 		9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2052A8CC37E0020D766 /* AppDelegate.swift */; };
 		9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2072A8CC37E0020D766 /* SceneDelegate.swift */; };
 		9266D20F2A8CC37F0020D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9266D20E2A8CC37F0020D766 /* Assets.xcassets */; };
@@ -20,7 +22,6 @@
 		9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D21E2A8CC7460020D766 /* CharactersViewController.swift */; };
 		9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2202A8CC7920020D766 /* CharacterCell.swift */; };
 		9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2222A8CC8400020D766 /* OptionsViewController.swift */; };
-		9266D2252A8CD5CD0020D766 /* CharacterModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2242A8CD5CD0020D766 /* CharacterModelView.swift */; };
 		9266D2282A8CE4B80020D766 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2272A8CE4B80020D766 /* FirebaseAuth */; };
 		9266D22A2A8CE4B80020D766 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2292A8CE4B80020D766 /* FirebaseDatabase */; };
 		9266D22C2A8CE4B80020D766 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D22B2A8CE4B80020D766 /* FirebaseFirestore */; };
@@ -28,7 +29,7 @@
 		9266D2302A8CE4B80020D766 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D22F2A8CE4B80020D766 /* FirebaseFirestoreSwift */; };
 		9266D2322A8CE4B80020D766 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2312A8CE4B80020D766 /* FirebaseStorage */; };
 		9266D2342A8CE4B80020D766 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D2332A8CE4B80020D766 /* FirebaseStorageCombine-Community */; };
-		9266D2392A8CF1760020D766 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* APIManager.swift */; };
+		9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* FirebaseManager.swift */; };
 		9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D23A2A8CF2550020D766 /* CharacterParcing.swift */; };
 		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
 /* End PBXBuildFile section */
@@ -37,8 +38,10 @@
 		920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		920BE36E2A90C681009B2F43 /* CharacterGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGuideViewController.swift; sourceTree = "<group>"; };
-		920BE3712A90EDD3009B2F43 /* VerticalLabelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStackView.swift; sourceTree = "<group>"; };
-		920BE3732A913254009B2F43 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		920BE3712A90EDD3009B2F43 /* VerticalLabelsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelsStackView.swift; sourceTree = "<group>"; };
+		924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
+		924849CF2ABCC24300433452 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		924849D12ABDF9EB00433452 /* TopItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsView.swift; sourceTree = "<group>"; };
 		9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR - Guides and Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9266D2052A8CC37E0020D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9266D2072A8CC37E0020D766 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +52,7 @@
 		9266D21E2A8CC7460020D766 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		9266D2202A8CC7920020D766 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		9266D2222A8CC8400020D766 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		9266D2242A8CD5CD0020D766 /* CharacterModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelView.swift; sourceTree = "<group>"; };
-		9266D2382A8CF1760020D766 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9266D2382A8CF1760020D766 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9266D23A2A8CF2550020D766 /* CharacterParcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterParcing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +95,9 @@
 		920BE3702A90EC63009B2F43 /* Reuseable Views */ = {
 			isa = PBXGroup;
 			children = (
-				920BE3712A90EDD3009B2F43 /* VerticalLabelStackView.swift */,
+				920BE3712A90EDD3009B2F43 /* VerticalLabelsStackView.swift */,
+				924849CF2ABCC24300433452 /* ItemView.swift */,
+				924849D12ABDF9EB00433452 /* TopItemsView.swift */,
 			);
 			path = "Reuseable Views";
 			sourceTree = "<group>";
@@ -145,7 +149,7 @@
 			children = (
 				9266D21E2A8CC7460020D766 /* CharactersViewController.swift */,
 				9266D2202A8CC7920020D766 /* CharacterCell.swift */,
-				9266D2242A8CD5CD0020D766 /* CharacterModelView.swift */,
+				924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */,
 				920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */,
 			);
 			path = CharactersScene;
@@ -162,9 +166,8 @@
 		9266D2372A8CF15A0020D766 /* FireBaseFolder */ = {
 			isa = PBXGroup;
 			children = (
-				9266D2382A8CF1760020D766 /* APIManager.swift */,
+				9266D2382A8CF1760020D766 /* FirebaseManager.swift */,
 				9266D23A2A8CF2550020D766 /* CharacterParcing.swift */,
-				920BE3732A913254009B2F43 /* Weapon.swift */,
 			);
 			path = FireBaseFolder;
 			sourceTree = "<group>";
@@ -256,14 +259,15 @@
 			files = (
 				9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */,
 				920BE36F2A90C681009B2F43 /* CharacterGuideViewController.swift in Sources */,
-				920BE3722A90EDD3009B2F43 /* VerticalLabelStackView.swift in Sources */,
+				924849D02ABCC24300433452 /* ItemView.swift in Sources */,
+				924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */,
+				920BE3722A90EDD3009B2F43 /* VerticalLabelsStackView.swift in Sources */,
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
-				920BE3742A913254009B2F43 /* Weapon.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
-				9266D2392A8CF1760020D766 /* APIManager.swift in Sources */,
+				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
+				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
 				9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */,
 				9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */,
-				9266D2252A8CD5CD0020D766 /* CharacterModelView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
 				9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */,
 				920BE36A2A9015A3009B2F43 /* UIColor + Extension.swift in Sources */,

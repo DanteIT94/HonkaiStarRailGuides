@@ -22,7 +22,7 @@ final class TabBarViewController: UITabBarController {
         tabBar.backgroundColor = .clear
         
         
-        let characterVC = CharactesViewController()
+        let characterVC = CharactersViewController()
         let guidesNavigationController = UINavigationController(rootViewController: characterVC)
         characterVC.tabBarItem = UITabBarItem(
             title: "Главное",

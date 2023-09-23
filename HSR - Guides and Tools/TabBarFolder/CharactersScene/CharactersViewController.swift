@@ -6,16 +6,21 @@
 //
 
 import UIKit
-import FirebaseStorage
+
+protocol CharactersView: AnyObject {
+    func reloadData()
+    func present(_ alert: UIAlertController, animated: Bool)
+    func presentCharacterGuideVC(character: Character)
+}
 
 
-class CharactesViewController: UIViewController {
+class CharactersViewController: UIViewController {
     
     //MARK: - Private Properties
     
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "1581410453_2")
+        image.image = UIImage(named: "backgroundImage")
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -30,34 +35,24 @@ class CharactesViewController: UIViewController {
         return tableView
     }()
     
-    
-    let firebaseManager = FirebaseManager()
+    var presenter: CharacterPresenterProtocol?
     private var characters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = CharacterPresenter(view: self)
         configureNavigationBar()
         configureCharacterTableView()
-        firebaseManager.fetchCharacters { [weak self] (loadedCharacters) in
-            self?.characters = loadedCharacters
-            DispatchQueue.main.async {
-                self?.charactersTableView.reloadData()
-            }
-        }
-        
+        presenter?.viewDidLoad()
+
     }
     
     //MARK: -Private Methods
     private func configureNavigationBar() {
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
-        let rightButton = UIBarButtonItem(image: UIImage(systemName: "moon.circle"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: #selector(filterButtonTapped))
         leftButton.tintColor = .black
         rightButton.tintColor = .black
-        
-        let separatorView = UIView(frame: CGRect(x: 0, y: navigationController?.navigationBar.frame.height ?? 0 - 1, width: UIScreen.main.bounds.width, height: 1))
-        separatorView.backgroundColor = .gray
-        navigationController?.navigationBar.addSubview(separatorView)
-        
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
         
@@ -67,6 +62,10 @@ class CharactesViewController: UIViewController {
         titleLabel.textColor = .black
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
+        
+        let separatorView = UIView(frame: CGRect(x: 0, y: navigationController?.navigationBar.frame.height ?? 0 - 1, width: UIScreen.main.bounds.width, height: 1))
+        separatorView.backgroundColor = .gray
+        navigationController?.navigationBar.addSubview(separatorView)
     }
     
     
@@ -93,23 +92,6 @@ class CharactesViewController: UIViewController {
     }
     
     //MARK: - Methods
-    //    private func loadCharacterIcon(from url: URL, into cell: CharacterCell) {
-    //        let storageReference = Storage.storage().reference(forURL: url.absoluteString)
-    //
-    //        storageReference.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
-    //            guard let imageData = data, error == nil else {
-    //                // Handle the error
-    //                return
-    //            }
-    //
-    //            DispatchQueue.main.async {
-    //                cell.characterIconImageView.image = UIImage(data: imageData)
-    //
-    //                // Increase the downloadedIconCount after successful image download
-    //                self?.downloadedIconCount += 1
-    //            }
-    //        }
-    //    }
     
     
     //MARK: -@OBJC Methods
@@ -117,13 +99,31 @@ class CharactesViewController: UIViewController {
         
     }
     
-    
+    @objc private func filterButtonTapped() {
+        presenter?.filterButtonTapped()
+    }
 }
 
+extension CharactersViewController: CharactersView {
+    func reloadData() {
+        charactersTableView.reloadData()
+    }
+    
+    func present(_ alert: UIAlertController, animated: Bool) {
+        self.present(alert, animated: animated, completion: nil)
+    }
+    
+    func presentCharacterGuideVC(character: Character) {
+        let characterVC = CharacterGuideVC(character: character)
+        navigationController?.pushViewController(characterVC, animated: true)
+    }
+}
+
+
 //MARK:  -UITableViewDataSource
-extension CharactesViewController: UITableViewDataSource {
+extension CharactersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters.count
+        return presenter?.numberOfRowsInsSection() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -132,9 +132,10 @@ extension CharactesViewController: UITableViewDataSource {
         }
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
-        let character = characters[indexPath.row]
-        cell.configure(with: character)
         
+        if let character = presenter?.characterAtIndexPath(indexPath) {
+                cell.configure(with: character)
+        }
         return cell
     }
     
@@ -142,62 +143,10 @@ extension CharactesViewController: UITableViewDataSource {
 }
 
 //MARK:  -UITableViewDelegate
-extension CharactesViewController: UITableViewDelegate {
+extension CharactersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let characterVC = CharacterGuideVC()
-        characterVC.modalPresentationStyle = .fullScreen
-        present(characterVC, animated: true)
+        presenter?.didSelectRowAt(indexPath: indexPath)
     }
     
 }
-
-
-
-//var timer: Timer?
-//var progressLayer: CAShapeLayer!
-//
-//// Создаем циферблат
-//let center = view.center
-//let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -.pi / 2, endAngle: 3 * .pi / 2, clockwise: true)
-//
-//// Создаем фоновый слой циферблата
-//let trackLayer = CAShapeLayer()
-//trackLayer.path = circularPath.cgPath
-//trackLayer.strokeColor = UIColor.lightGray.cgColor
-//trackLayer.lineWidth = 10
-//trackLayer.fillColor = UIColor.clear.cgColor
-//view.layer.addSublayer(trackLayer)
-//
-//// Создаем слой прогресса циферблата
-//progressLayer = CAShapeLayer()
-//progressLayer.path = circularPath.cgPath
-//progressLayer.strokeColor = UIColor.red.cgColor
-//progressLayer.lineWidth = 10
-//progressLayer.fillColor = UIColor.clear.cgColor
-//progressLayer.strokeEnd = 0 // Устанавливаем начальное значение прогресса
-//progressLayer.lineCap = .round
-//view.layer.addSublayer(progressLayer)
-//
-//// Добавляем кнопку старта
-//let startButton = UIButton(type: .system)
-//startButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
-//startButton.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 100)
-//startButton.setTitle("Start", for: .normal)
-//startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
-//view.addSubview(startButton)
-//
-//@objc func startTimer() {
-//    // Инициализируем и запускаем таймер
-//    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
-//}
-//
-//@objc func updateProgress() {
-//    // Увеличиваем значение прогресса на каждом вызове таймера
-//    progressLayer.strokeEnd += 1.0 / 60.0 // Предполагаем 60 FPS
-//    if progressLayer.strokeEnd >= 1.0 {
-//        // Таймер завершен, останавливаем его
-//        timer?.invalidate()
-//    }
-//}
