@@ -13,7 +13,6 @@ protocol CharactersView: AnyObject {
     func presentCharacterGuideVC(character: Character)
 }
 
-
 class CharactersViewController: UIViewController {
     
     //MARK: - Private Properties
@@ -138,8 +137,6 @@ extension CharactersViewController: UITableViewDataSource {
         }
         return cell
     }
-    
-    
 }
 
 //MARK:  -UITableViewDelegate
