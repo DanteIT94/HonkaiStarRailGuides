@@ -21,6 +21,7 @@ final class StatsView: UIView {
         let label = UILabel()
         label.text = "Основные"
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
         return label
     }()
@@ -28,12 +29,14 @@ final class StatsView: UIView {
     let additionalLabel: UILabel = {
        let label = UILabel()
         label.text = "Доп."
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
     let additionalCommentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -56,10 +59,12 @@ final class StatsView: UIView {
         ["Тело", "Ноги", "Сфера", "Цепь"].forEach { text in
             let mainLabel = UILabel()
             mainLabel.text = text
+            mainLabel.font = UIFont.boldSystemFont(ofSize: 14)
             mainLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
             
             let commentLabel = UILabel()
             commentLabel.numberOfLines = 0
+            commentLabel.font = UIFont.systemFont(ofSize: 14)
             
             let horizontalStack = UIStackView(arrangedSubviews: [mainLabel, commentLabel])
             horizontalStack.axis = .horizontal
@@ -82,19 +87,18 @@ final class StatsView: UIView {
         additionalCommentLabel.translatesAutoresizingMaskIntoConstraints = false
         additionalLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        mainVerticalLabel.transform = CGAffineTransform(rotationAngle: -.pi/2)
         
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             
             mainVerticalLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 16),
-            mainVerticalLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mainVerticalLabel.widthAnchor.constraint(equalToConstant: 85),
-            mainVerticalLabel.heightAnchor.constraint(equalToConstant: 110),
+            mainVerticalLabel.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
+            mainVerticalLabel.widthAnchor.constraint(equalToConstant: 100),
+            mainVerticalLabel.centerYAnchor.constraint(equalTo: mainStack.centerYAnchor),
             
             mainStack.topAnchor.constraint(equalTo: mainVerticalLabel.topAnchor),
-            mainStack.leadingAnchor.constraint(equalTo: mainVerticalLabel.trailingAnchor, constant: 8),
+            mainStack.leadingAnchor.constraint(equalTo: mainVerticalLabel.trailingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             additionalLabel.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 8),
