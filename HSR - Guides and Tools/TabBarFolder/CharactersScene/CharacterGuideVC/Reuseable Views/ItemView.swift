@@ -27,6 +27,7 @@ final class itemView: UIView {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -81,7 +82,8 @@ final class itemView: UIView {
             descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: mainStack.trailingAnchor),
             commentLabel.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 100),
-            imageView.heightAnchor.constraint(equalToConstant: 100)
+            imageView.heightAnchor.constraint(equalToConstant: 100),
+            titleLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

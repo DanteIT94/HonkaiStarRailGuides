@@ -13,7 +13,6 @@ import Firebase
 
 class FirebaseManager {
     var databaseReference: DatabaseReference!
-    var characters: [Character] = []
 
     init() {
         databaseReference = Database.database().reference()
@@ -84,7 +83,6 @@ class FirebaseManager {
                     loadedCharacters.append(character)
                 }
             }
-            self.characters = loadedCharacters
             completion(loadedCharacters)
         }
     }
