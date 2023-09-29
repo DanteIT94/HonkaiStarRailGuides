@@ -186,3 +186,5 @@ final class CharacterGuideVC: UIViewController {
         print("Назад на экран выбора персонажа")
     }
 }
+
+

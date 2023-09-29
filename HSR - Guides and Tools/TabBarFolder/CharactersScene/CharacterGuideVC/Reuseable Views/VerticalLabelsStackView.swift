@@ -32,10 +32,19 @@ final class VerticalLabelsStackView: UIStackView {
             }
             
             container.addSubview(label)
-            container.layer.cornerRadius = 5.0
+            container.layer.cornerRadius = 2.0
             container.clipsToBounds = true
             container.layer.borderWidth = 1.0
             container.layer.borderColor = UIColor.gray.cgColor
+            
+            if index % 2 == 0 {
+                let spacer = UIView()
+                spacer.translatesAutoresizingMaskIntoConstraints = false
+                addArrangedSubview(spacer)
+                
+                NSLayoutConstraint.activate([
+                    spacer.heightAnchor.constraint(equalToConstant: 3.0)])
+            }
             
             label.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
@@ -70,5 +79,10 @@ final class VerticalLabelsStackView: UIStackView {
             labels[index].text = newText
         }
     }
-    
+
 }
+
+//#Preview {
+//    let character = MockData.shared.mockCharacter
+//    return CharacterGuideVC(character: character)
+//}

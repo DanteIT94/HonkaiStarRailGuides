@@ -124,3 +124,4 @@ final class StatsView: UIView {
         additionalCommentLabel.text = additionalStatsComment
     }
 }
+
