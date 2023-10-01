@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 final class TabBarViewController: UITabBarController {
     
@@ -13,6 +14,24 @@ final class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         createTabViewController()
         view.backgroundColor = .white
+        
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .badge, .sound]) { granted, error in
+                if granted {
+                    // Создание контента уведомления
+                    let content = UNMutableNotificationContent()
+                    content.title = "Обновление уже в игре"
+                    content.body = "Мы обновили гайды специально для тебя)"
+                    
+                    // Триггер уведомления
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats:  false)
+                    
+                    let request = UNNotificationRequest(identifier: "testNotification", content: content, trigger: trigger)
+                    
+                    UNUserNotificationCenter.current().add(request)
+                }
+                
+            }
         
     }
     
