@@ -54,6 +54,8 @@
 		9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* FirebaseManager.swift */; };
 		9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D23A2A8CF2550020D766 /* CharacterParcing.swift */; };
 		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
+		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
+		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		9266D2222A8CC8400020D766 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9266D2382A8CF1760020D766 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9266D23A2A8CF2550020D766 /* CharacterParcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterParcing.swift; sourceTree = "<group>"; };
+		92E571752AC977D000457B08 /* InfoModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalViewController.swift; sourceTree = "<group>"; };
+		92E571772AC99FCC00457B08 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			children = (
 				920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */,
 				921F1A3C2AC58009003B37E5 /* MockData.swift */,
+				92E571772AC99FCC00457B08 /* Strings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				924849CF2ABCC24300433452 /* ItemView.swift */,
 				924849D12ABDF9EB00433452 /* TopItemsView.swift */,
 				924849D32AC0515D00433452 /* StatsView.swift */,
+				92E571752AC977D000457B08 /* InfoModalViewController.swift */,
 			);
 			path = "Reuseable Views";
 			sourceTree = "<group>";
@@ -331,7 +337,9 @@
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
 				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
+				92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */,
 				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
+				92E571782AC99FCC00457B08 /* Strings.swift in Sources */,
 				9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */,
 				9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */,
 				924849D42AC0515D00433452 /* StatsView.swift in Sources */,
