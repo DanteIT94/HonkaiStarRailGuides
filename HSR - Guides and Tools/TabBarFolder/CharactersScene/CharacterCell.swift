@@ -5,15 +5,16 @@
 //  Created by Денис on 16.08.2023.
 
 import UIKit
-import FirebaseStorage
 import SDWebImage
 
+
 final class CharacterCell: UITableViewCell {
-    
+//    let cellUIView: UIView = UIView().then { view in
+//    }
     
     let cellUIView: UIView = {
-        let UIView = UIView()
-        return UIView
+        let view = UIView()
+        return view
     }()
     
     let characterIcon: UIImageView = {
@@ -42,7 +43,6 @@ final class CharacterCell: UITableViewCell {
     
     let characterName: UILabel = {
         let label = UILabel()
-        // ... настройки для label (шрифт, цвет и т. д.)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Name"
         return label
@@ -90,7 +90,7 @@ final class CharacterCell: UITableViewCell {
             elementIcon.trailingAnchor.constraint(equalTo: specializationIcon.leadingAnchor, constant: -16),
             specializationIcon.trailingAnchor.constraint(equalTo: cellUIView.trailingAnchor, constant: -16),
 
-            // Предполагается, что у каждого из элементов есть фиксированная ширина (замените на свои значения)
+            // у каждого из элементов есть фиксированная ширина (замените на свои значения)
             characterIcon.widthAnchor.constraint(equalToConstant: 60),
             characterIcon.heightAnchor.constraint(equalToConstant: 60),// Пример
             characterName.widthAnchor.constraint(equalToConstant: 100), // Пример
@@ -118,7 +118,7 @@ final class CharacterCell: UITableViewCell {
         }
         
         cellUIView.backgroundColor = .white
-//        character.elementType.color
     }
     
 }
+

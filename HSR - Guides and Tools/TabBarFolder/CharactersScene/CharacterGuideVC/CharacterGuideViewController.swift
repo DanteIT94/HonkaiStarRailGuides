@@ -48,6 +48,7 @@ final class CharacterGuideVC: UIViewController {
     private var weaponsView: TopItemsView!
     private var relicsView: TopItemsView!
     private var planarsView: TopItemsView!
+    private var statsView: StatsView!
     
     private var currentCharacter: Character?
     
@@ -70,7 +71,7 @@ final class CharacterGuideVC: UIViewController {
     
     private func configureNavigationBar() {
         navigationItem.title = "\(currentCharacter?.name ?? "Персонаж")"
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(closeCharacterVC))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeCharacterVC))
         backButton.tintColor = .black
         navigationItem.leftBarButtonItem = backButton
     }
@@ -140,10 +141,23 @@ final class CharacterGuideVC: UIViewController {
         ].compactMap { $0 },
                                    header: "Toп Планарных украшений")
         
-        [weaponsView, relicsView, planarsView].forEach {
+        statsView = StatsView()
+        
+        [weaponsView, relicsView, planarsView, statsView].forEach {
             $0?.translatesAutoresizingMaskIntoConstraints = false
             backgroundView.addSubview($0!)
         }
+        
+        let mainComments = [
+            currentCharacter?.stats?.mainStats?.body?.value ?? "",
+            currentCharacter?.stats?.mainStats?.foot?.value ?? "",
+            currentCharacter?.stats?.mainStats?.sphere?.value ?? "",
+            currentCharacter?.stats?.mainStats?.chain?.value ?? ""]
+        
+        let additionalComment = currentCharacter?.stats?.additionalStats?.value ?? ""
+        
+        statsView.updateComments(mainStatsComment: mainComments, additionalStatsComment: additionalComment)
+        
         NSLayoutConstraint.activate([
             weaponsView.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: 16),
             weaponsView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 8),
@@ -156,8 +170,14 @@ final class CharacterGuideVC: UIViewController {
             planarsView.topAnchor.constraint(equalTo: relicsView.bottomAnchor, constant: 16),
             planarsView.leadingAnchor.constraint(equalTo: weaponsView.leadingAnchor),
             planarsView.trailingAnchor.constraint(equalTo: weaponsView.trailingAnchor),
-            planarsView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16)
+            
+            statsView.topAnchor.constraint(equalTo: planarsView.bottomAnchor, constant: 16),
+            statsView.leadingAnchor.constraint(equalTo: weaponsView.leadingAnchor),
+            statsView.trailingAnchor.constraint(equalTo: weaponsView.trailingAnchor),
+            statsView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16)
         ])
+        
+
     }
         
     
@@ -166,3 +186,5 @@ final class CharacterGuideVC: UIViewController {
         print("Назад на экран выбора персонажа")
     }
 }
+
+
