@@ -35,7 +35,7 @@ Swift Package Manager (SPM): Для управления зависимостя�
 
 ## Скриншоты
 Main Screen
-
+![MainScreen](https://github.com/DanteIT94/HonkaiStarRailGuides/blob/main/CharactersList.png)
 Character Screen
 
 Лицензия
