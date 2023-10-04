@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import UserNotifications
 
 final class TabBarViewController: UITabBarController {
@@ -49,13 +50,18 @@ final class TabBarViewController: UITabBarController {
             selectedImage: nil)
         
         
-        let optionsViewController = OptionsViewController()
-        optionsViewController.tabBarItem = UITabBarItem(
-            title: "Настройки",
-            image: UIImage(systemName: "doc.badge.gearshape.fill"),
-            selectedImage: nil)
-        
-        self.viewControllers = [guidesNavigationController, optionsViewController]
+        if #available(iOS 14.0, *) {
+            let settingsView = SettingsView()
+            let settingsVC = UIHostingController(rootView: settingsView)
+            settingsVC.tabBarItem = UITabBarItem(
+                title: "Настройки",
+                image: UIImage(systemName: "doc.badge.gearshape.fill"),
+                selectedImage: nil)
+            self.viewControllers = [guidesNavigationController, settingsVC]
+        } else {
+            // Fallback on earlier versions
+        }
+    
     }
 }
 

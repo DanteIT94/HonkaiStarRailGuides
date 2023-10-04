@@ -50,12 +50,15 @@
 		9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */; };
 		9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D21E2A8CC7460020D766 /* CharactersViewController.swift */; };
 		9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2202A8CC7920020D766 /* CharacterCell.swift */; };
-		9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2222A8CC8400020D766 /* OptionsViewController.swift */; };
+		9266D2232A8CC8400020D766 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2222A8CC8400020D766 /* SettingsView.swift */; };
 		9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* FirebaseManager.swift */; };
 		9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D23A2A8CF2550020D766 /* CharacterParcing.swift */; };
 		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
 		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
 		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
+		92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717A2ACAB44C00457B08 /* DeveloperView.swift */; };
+		92E5717D2ACCA1DB00457B08 /* ExternalLinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717C2ACCA1DB00457B08 /* ExternalLinksViewModel.swift */; };
+		92E5717F2ACCA8BE00457B08 /* ContactViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717E2ACCA8BE00457B08 /* ContactViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,11 +80,14 @@
 		9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9266D21E2A8CC7460020D766 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		9266D2202A8CC7920020D766 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
-		9266D2222A8CC8400020D766 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		9266D2222A8CC8400020D766 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9266D2382A8CF1760020D766 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9266D23A2A8CF2550020D766 /* CharacterParcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterParcing.swift; sourceTree = "<group>"; };
 		92E571752AC977D000457B08 /* InfoModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalViewController.swift; sourceTree = "<group>"; };
 		92E571772AC99FCC00457B08 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		92E5717A2ACAB44C00457B08 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		92E5717C2ACCA1DB00457B08 /* ExternalLinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinksViewModel.swift; sourceTree = "<group>"; };
+		92E5717E2ACCA8BE00457B08 /* ContactViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +216,8 @@
 		9266D21B2A8CC4C50020D766 /* OptionsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9266D2222A8CC8400020D766 /* OptionsViewController.swift */,
+				92E571792ACAB43200457B08 /* DeveloperView */,
+				9266D2222A8CC8400020D766 /* SettingsView.swift */,
 			);
 			path = OptionsViewController;
 			sourceTree = "<group>";
@@ -222,6 +229,16 @@
 				9266D23A2A8CF2550020D766 /* CharacterParcing.swift */,
 			);
 			path = FireBaseFolder;
+			sourceTree = "<group>";
+		};
+		92E571792ACAB43200457B08 /* DeveloperView */ = {
+			isa = PBXGroup;
+			children = (
+				92E5717A2ACAB44C00457B08 /* DeveloperView.swift */,
+				92E5717C2ACCA1DB00457B08 /* ExternalLinksViewModel.swift */,
+				92E5717E2ACCA8BE00457B08 /* ContactViews.swift */,
+			);
+			path = DeveloperView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +350,7 @@
 				920BE36F2A90C681009B2F43 /* CharacterGuideViewController.swift in Sources */,
 				924849D02ABCC24300433452 /* ItemView.swift in Sources */,
 				924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */,
+				92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */,
 				920BE3722A90EDD3009B2F43 /* VerticalLabelsStackView.swift in Sources */,
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
@@ -340,13 +358,15 @@
 				92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */,
 				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
 				92E571782AC99FCC00457B08 /* Strings.swift in Sources */,
-				9266D2232A8CC8400020D766 /* OptionsViewController.swift in Sources */,
+				9266D2232A8CC8400020D766 /* SettingsView.swift in Sources */,
 				9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */,
+				92E5717F2ACCA8BE00457B08 /* ContactViews.swift in Sources */,
 				924849D42AC0515D00433452 /* StatsView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
 				921F1A3D2AC58009003B37E5 /* MockData.swift in Sources */,
 				9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */,
 				920BE36A2A9015A3009B2F43 /* UIColor + Extension.swift in Sources */,
+				92E5717D2ACCA1DB00457B08 /* ExternalLinksViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
