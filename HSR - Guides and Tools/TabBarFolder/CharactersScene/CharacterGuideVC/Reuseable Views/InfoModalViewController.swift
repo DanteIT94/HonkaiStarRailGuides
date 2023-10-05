@@ -18,7 +18,7 @@ final class InfoModalViewController: UIViewController {
     
     private func setupLayout() {
         let contentBackgroundView = UIView()
-        contentBackgroundView.backgroundColor = .white
+        contentBackgroundView.backgroundColor = .whiteDayNight
         contentBackgroundView.layer.cornerRadius = 16
         contentBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentBackgroundView)
@@ -33,12 +33,14 @@ final class InfoModalViewController: UIViewController {
         //Stack
         let titleLabel = UILabel()
         titleLabel.text = titleText
+        titleLabel.textColor = .blackDayNight
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.textAlignment = .center
         
         let infoLabel = UILabel()
         infoLabel.text = infoText
+        infoLabel.textColor = .blackDayNight
         infoLabel.font = UIFont.systemFont(ofSize: 10)
         infoLabel.numberOfLines = 0
         infoLabel.textAlignment = .left

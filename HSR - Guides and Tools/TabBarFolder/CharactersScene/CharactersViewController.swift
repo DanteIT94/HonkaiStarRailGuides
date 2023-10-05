@@ -50,15 +50,15 @@ class CharactersViewController: UIViewController {
     private func configureNavigationBar() {
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
         let rightButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: #selector(filterButtonTapped))
-        leftButton.tintColor = .black
-        rightButton.tintColor = .black
+        leftButton.tintColor = .whiteDayNight
+        rightButton.tintColor = .whiteDayNight
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
         
         let titleLabel = UILabel()
         titleLabel.text = "Персонажи"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .whiteDayNight
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         

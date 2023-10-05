@@ -11,6 +11,8 @@ final class itemView: UIView {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 40
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
