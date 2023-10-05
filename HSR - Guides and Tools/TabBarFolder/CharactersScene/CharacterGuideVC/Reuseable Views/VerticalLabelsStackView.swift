@@ -17,10 +17,11 @@ final class VerticalLabelsStackView: UIStackView {
         for (index, text) in labelsText.enumerated() {
             let label = UILabel()
             label.text = text
+            label.textColor = .blackUni
             label.backgroundColor = .clear
             label.textAlignment = .center
             label.layer.borderWidth = 1.0
-            label.layer.borderColor = UIColor.gray.cgColor
+            label.layer.borderColor = UIColor.blackDayNight.cgColor
             labels.append(label)
             
             let container = UIView()

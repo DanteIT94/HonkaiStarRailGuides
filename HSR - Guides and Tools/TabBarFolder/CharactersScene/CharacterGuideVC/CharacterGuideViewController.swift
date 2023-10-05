@@ -63,7 +63,7 @@ final class CharacterGuideVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteDayNight
         configureNavigationBar()
         configLayout()
         loadData()
@@ -72,8 +72,12 @@ final class CharacterGuideVC: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = "\(currentCharacter?.name ?? "Персонаж")"
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeCharacterVC))
-        backButton.tintColor = .black
+        backButton.tintColor = .blackDayNight
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down.on.square"), style: .plain, target: self, action: #selector(downloadGuidePicture))
+        rightButton.tintColor = .blackDayNight
+        
         navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = rightButton
     }
     
     private func configLayout() {
@@ -180,6 +184,9 @@ final class CharacterGuideVC: UIViewController {
 
     }
         
+    @objc private func downloadGuidePicture() {
+        
+    }
     
     @objc private func closeCharacterVC() {
         navigationController?.popViewController(animated: true)
