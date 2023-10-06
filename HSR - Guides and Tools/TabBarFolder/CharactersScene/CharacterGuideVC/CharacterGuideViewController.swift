@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import ProgressHUD
 
 final class CharacterGuideVC: UIViewController {
     
@@ -186,10 +187,13 @@ final class CharacterGuideVC: UIViewController {
     @objc private func downloadGuidePicture() {
         let alert = UIAlertController(title: "Скачать дополнительный гайд в виде картинки?", message: "P.S.: Данные могут отличаться ввиду разных взглядов авторов", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Да, скачать", style: .default, handler: { _ in
+            ProgressHUD.show("Загрузка...")
+            
             if let stringURL = self.currentCharacter?.guideImageURL, let imageURL = URL(string: stringURL) {
                 SDWebImageManager.shared.loadImage(with: imageURL,
                                                    options: .highPriority,
                                                    progress: nil) { image, data, error, cacheType, success, url in
+                    ProgressHUD.dismiss()
                     if let imageToSave = image {
                         UIImageWriteToSavedPhotosAlbum(imageToSave, self, #selector(self.imageSavedSuccessfully(_:didFinishSavingWithError:contextInfo:)), nil)
                     } else if let error = error {
@@ -212,7 +216,14 @@ final class CharacterGuideVC: UIViewController {
         } else {
             // Успешно сохранено
             let ac = UIAlertController(title: "Сохранено", message: "Ваше изображение было сохранено в фотоальбом.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "ОК", style: .default))
+            ac.addAction(UIAlertAction(title: "ОК", style: .default, handler: { _ in
+                // Открываем приложение "Фото"
+                if let url = URL(string: "photos-redirect://") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }))
             present(ac, animated: true)
         }
     }
