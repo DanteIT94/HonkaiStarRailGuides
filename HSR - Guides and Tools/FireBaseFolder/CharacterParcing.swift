@@ -15,6 +15,7 @@ struct Character: Codable {
     let fullImageURL: String?
     let iconImageURL: String
     let pathURL: String
+    let guideImageURL: String?
     let planars: Planars?
     let relics: Relics?
     let stats: Stats?

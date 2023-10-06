@@ -13,14 +13,17 @@ protocol CharacterPresenterProtocol {
     func numberOfRowsInsSection() -> Int
     func characterAtIndexPath(_ indexPath: IndexPath) -> Character
     func didSelectRowAt(indexPath: IndexPath)
+    func sortButtonTapped()
     func filterButtonTapped()
 }
 
 final class CharacterPresenter {
     
     weak var view: CharactersView?
-    var characters: [Character] = []
     let firebaseManager: FirebaseManager
+    
+    var characters: [Character] = []
+    let tierOrder: [String: Int] = ["S+": 0, "S": 1, "A": 2, "B": 3, "C": 4]
     
     init(view: CharactersView) {
         self.view = view
@@ -31,7 +34,9 @@ final class CharacterPresenter {
 extension CharacterPresenter: CharacterPresenterProtocol {
     func viewDidLoad() {
         firebaseManager.fetchCharacters { [weak self] (loadedCharacters) in
-            self?.characters = loadedCharacters
+            self?.characters = loadedCharacters.sorted {
+                (self?.tierOrder[$0.basicInfo?.tier ?? ""] ?? 100) < (self?.tierOrder[$1.basicInfo?.tier ?? ""] ?? 100)
+            }
             DispatchQueue.main.async {
                 self?.view?.reloadData()
             }
@@ -51,7 +56,7 @@ extension CharacterPresenter: CharacterPresenterProtocol {
         view?.presentCharacterGuideVC(character: selectedCharacter)
     }
     
-    func filterButtonTapped() {
+    func sortButtonTapped() {
         let alert = UIAlertController(title: "Сортировка по:", message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Имя", style: .default, handler: {_ in
@@ -66,13 +71,21 @@ extension CharacterPresenter: CharacterPresenterProtocol {
             self.sortBySpec()
         }))
         
+        alert.addAction(UIAlertAction(title: "Тир", style: .default, handler: { _ in
+            self.sortByTier()
+        }))
+        
         alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
         
         view?.present(alert, animated: true)
     }
     
+    func filterButtonTapped() {
+        
+    }
+    
     private func sortByName() {
-        self.characters.sort { $0.name > $1.name }
+        self.characters.sort { $0.name < $1.name }
         view?.reloadData()
     }
     
@@ -85,6 +98,15 @@ extension CharacterPresenter: CharacterPresenterProtocol {
         self.characters.sort { $0.pathURL > $1.pathURL }
         view?.reloadData()
     }
+    
+    private func sortByTier() {
+        self.characters.sort { 
+            (tierOrder[$0.basicInfo?.tier ?? ""] ?? 100) < (tierOrder[$1.basicInfo?.tier ?? ""] ?? 100)
+        }
+        view?.reloadData()
+    }
+    
+    
     
 }
 

@@ -31,6 +31,7 @@ class FirebaseManager {
                     let fullImageURL = dict["fullImage"] as? String
                     let iconImageURL = dict["iconImage"] as? String ?? ""
                     let pathURL = dict["path"] as? String ?? ""
+                    let guideImageURL = dict["guideImage"] as? String ?? ""
                     
                     let basicInfoDict = dict["basicInfo"] as? [String: String] ?? [:]
                     let planarsDict = dict["planars"] as? [String: [String: String]] ?? [:]
@@ -73,6 +74,7 @@ class FirebaseManager {
                         fullImageURL: fullImageURL,
                         iconImageURL: iconImageURL,
                         pathURL: pathURL,
+                        guideImageURL: guideImageURL,
                         planars: planars,
                         relics: relics,
                         stats: stats,
