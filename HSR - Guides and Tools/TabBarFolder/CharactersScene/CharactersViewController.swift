@@ -39,6 +39,7 @@ class CharactersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .whiteDayNight
         presenter = CharacterPresenter(view: self)
         configureNavigationBar()
         configureCharacterTableView()
@@ -48,23 +49,26 @@ class CharactersViewController: UIViewController {
     
     //MARK: -Private Methods
     private func configureNavigationBar() {
-        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
-        let rightButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: #selector(filterButtonTapped))
-        leftButton.tintColor = .black
-        rightButton.tintColor = .black
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
+        navigationController?.navigationBar.backgroundColor = .whiteDayNight
         
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: #selector(sortButtonTapped))
+        sortButton.tintColor = .blackDayNight
+        let filterButton = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(filterButtonTapped))
+        filterButton.tintColor = .blackDayNight
+        
+        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
+        leftButton.tintColor = .blackDayNight
+        
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.rightBarButtonItems = [sortButton, filterButton]
+
         let titleLabel = UILabel()
         titleLabel.text = "Персонажи"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .blackDayNight
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         
-        let separatorView = UIView(frame: CGRect(x: 0, y: navigationController?.navigationBar.frame.height ?? 0 - 1, width: UIScreen.main.bounds.width, height: 1))
-        separatorView.backgroundColor = .gray
-        navigationController?.navigationBar.addSubview(separatorView)
     }
     
     
@@ -96,6 +100,10 @@ class CharactersViewController: UIViewController {
     //MARK: -@OBJC Methods
     @objc private func scrollMenuButtonTapped() {
         
+    }
+    
+    @objc private func sortButtonTapped() {
+        presenter?.sortButtonTapped()
     }
     
     @objc private func filterButtonTapped() {

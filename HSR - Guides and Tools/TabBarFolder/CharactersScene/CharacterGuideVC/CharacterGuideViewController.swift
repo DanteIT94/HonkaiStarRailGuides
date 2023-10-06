@@ -12,13 +12,13 @@ final class CharacterGuideVC: UIViewController {
     
     //Этап 1 - ScrollView
     private let scrollView: UIScrollView = {
-       let scrollView = UIScrollView()
+        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
     private let backgroundView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -63,7 +63,7 @@ final class CharacterGuideVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteDayNight
         configureNavigationBar()
         configLayout()
         loadData()
@@ -72,8 +72,12 @@ final class CharacterGuideVC: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = "\(currentCharacter?.name ?? "Персонаж")"
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeCharacterVC))
-        backButton.tintColor = .black
+        backButton.tintColor = .blackDayNight
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down.on.square"), style: .plain, target: self, action: #selector(downloadGuidePicture))
+        rightButton.tintColor = .blackDayNight
+        
         navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = rightButton
     }
     
     private func configLayout() {
@@ -177,9 +181,42 @@ final class CharacterGuideVC: UIViewController {
             statsView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16)
         ])
         
-
     }
+    
+    @objc private func downloadGuidePicture() {
+        let alert = UIAlertController(title: "Скачать дополнительный гайд в виде картинки?", message: "P.S.: Данные могут отличаться ввиду разных взглядов авторов", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Да, скачать", style: .default, handler: { _ in
+            if let stringURL = self.currentCharacter?.guideImageURL, let imageURL = URL(string: stringURL) {
+                SDWebImageManager.shared.loadImage(with: imageURL,
+                                                   options: .highPriority,
+                                                   progress: nil) { image, data, error, cacheType, success, url in
+                    if let imageToSave = image {
+                        UIImageWriteToSavedPhotosAlbum(imageToSave, self, #selector(self.imageSavedSuccessfully(_:didFinishSavingWithError:contextInfo:)), nil)
+                    } else if let error = error {
+                        print("\(error)")
+                    }
+                }
+            }
+        }))
         
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func imageSavedSuccessfully(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // Не удалось сохранить изображение
+            let ac = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "ОК", style: .default))
+            present(ac, animated: true)
+        } else {
+            // Успешно сохранено
+            let ac = UIAlertController(title: "Сохранено", message: "Ваше изображение было сохранено в фотоальбом.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "ОК", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
     
     @objc private func closeCharacterVC() {
         navigationController?.popViewController(animated: true)
