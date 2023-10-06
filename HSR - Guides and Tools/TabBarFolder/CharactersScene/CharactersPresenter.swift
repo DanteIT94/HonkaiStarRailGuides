@@ -21,13 +21,21 @@ final class CharacterPresenter {
     
     weak var view: CharactersView?
     let firebaseManager: FirebaseManager
+    let sortService: SortService
+    let filterService: FilterService
     
     var characters: [Character] = []
     let tierOrder: [String: Int] = ["S+": 0, "S": 1, "A": 2, "B": 3, "C": 4]
     
+    //MARK: - Для фильтрации
+    var filteredCharacter: [Character] = []
+    var isFiltered: Bool = false
+    
     init(view: CharactersView) {
         self.view = view
         self.firebaseManager = FirebaseManager()
+        self.filterService = FilterService()
+        self.sortService = SortService()
     }
 }
 
@@ -44,15 +52,15 @@ extension CharacterPresenter: CharacterPresenterProtocol {
     }
     
     func numberOfRowsInsSection() -> Int {
-        return characters.count
+        return isFiltered ? filteredCharacter.count : characters.count
     }
     
     func characterAtIndexPath(_ indexPath: IndexPath) -> Character {
-        return characters[indexPath.row]
+        return isFiltered ? filteredCharacter[indexPath.row] : characters[indexPath.row]
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
-        let selectedCharacter = characters[indexPath.row]
+        let selectedCharacter = isFiltered ? filteredCharacter[indexPath.row] : characters[indexPath.row]
         view?.presentCharacterGuideVC(character: selectedCharacter)
     }
     
@@ -81,32 +89,61 @@ extension CharacterPresenter: CharacterPresenterProtocol {
     }
     
     func filterButtonTapped() {
+        let alert = UIAlertController(title: "Фильтрация по:", message: nil, preferredStyle: .actionSheet)
         
+        alert.addAction(UIAlertAction(title: "Тир", style: .default, handler: { [weak self] _ in
+            self?.showTierSelection()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Снять фильтр", style: .destructive, handler: { [weak self] _ in
+            self?.isFiltered = false
+            self?.view?.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
+        self.view?.present(alert, animated: true)
     }
     
+    //MARK: - Private Methods
     private func sortByName() {
-        self.characters.sort { $0.name < $1.name }
+        self.characters = sortService.sortCharactersByName(self.characters)
         view?.reloadData()
     }
     
     private func sortByElement() {
-        self.characters.sort { $0.elementURL > $1.elementURL}
+        self.characters = sortService.sortCharactesByElement(self.characters)
         view?.reloadData()
     }
     
     private func sortBySpec() {
-        self.characters.sort { $0.pathURL > $1.pathURL }
+        self.characters = sortService.sortCharactersBySpec(self.characters)
         view?.reloadData()
     }
     
     private func sortByTier() {
-        self.characters.sort { 
-            (tierOrder[$0.basicInfo?.tier ?? ""] ?? 100) < (tierOrder[$1.basicInfo?.tier ?? ""] ?? 100)
-        }
+        self.characters = sortService.sortCharacterByTier(self.characters)
         view?.reloadData()
     }
     
+    private func showTierSelection() {
+        let tierAlert = UIAlertController(title: "Выберите Тир", message: nil, preferredStyle: .actionSheet)
+        let tiers = ["S+", "S", "A", "B", "C"]
+        
+        for tier in tiers {
+            tierAlert.addAction(UIAlertAction(title: tier, style: .default, handler: { [weak self] _ in
+                self?.filterByTier(tier)
+            }))
+        }
+        tierAlert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        view?.present(tierAlert, animated: true)
+    }
     
+    private func filterByTier(_ tier: String) {
+        isFiltered = true
+        filteredCharacter = filterService.filterCharacterByTier(characters, tier: tier)
+        view?.reloadData()
+    }
     
 }
 
