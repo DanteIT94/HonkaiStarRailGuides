@@ -54,6 +54,8 @@
 		9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2382A8CF1760020D766 /* FirebaseManager.swift */; };
 		9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D23A2A8CF2550020D766 /* CharacterParcing.swift */; };
 		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
+		927AB3302AD07E980077BB4E /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB32F2AD07E980077BB4E /* FilterService.swift */; };
+		927AB3322AD07EB40077BB4E /* SortService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3312AD07EB40077BB4E /* SortService.swift */; };
 		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
 		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
 		92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717A2ACAB44C00457B08 /* DeveloperView.swift */; };
@@ -83,6 +85,8 @@
 		9266D2222A8CC8400020D766 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9266D2382A8CF1760020D766 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9266D23A2A8CF2550020D766 /* CharacterParcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterParcing.swift; sourceTree = "<group>"; };
+		927AB32F2AD07E980077BB4E /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
+		927AB3312AD07EB40077BB4E /* SortService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortService.swift; sourceTree = "<group>"; };
 		92E571752AC977D000457B08 /* InfoModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalViewController.swift; sourceTree = "<group>"; };
 		92E571772AC99FCC00457B08 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		92E5717A2ACAB44C00457B08 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				9266D21E2A8CC7460020D766 /* CharactersViewController.swift */,
 				9266D2202A8CC7920020D766 /* CharacterCell.swift */,
 				924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */,
+				927AB32F2AD07E980077BB4E /* FilterService.swift */,
+				927AB3312AD07EB40077BB4E /* SortService.swift */,
 				920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */,
 			);
 			path = CharactersScene;
@@ -349,9 +355,11 @@
 				9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */,
 				920BE36F2A90C681009B2F43 /* CharacterGuideViewController.swift in Sources */,
 				924849D02ABCC24300433452 /* ItemView.swift in Sources */,
+				927AB3302AD07E980077BB4E /* FilterService.swift in Sources */,
 				924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */,
 				92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */,
 				920BE3722A90EDD3009B2F43 /* VerticalLabelsStackView.swift in Sources */,
+				927AB3322AD07EB40077BB4E /* SortService.swift in Sources */,
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
 				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
