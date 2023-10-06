@@ -95,6 +95,10 @@ extension CharacterPresenter: CharacterPresenterProtocol {
             self?.showTierSelection()
         }))
         
+        alert.addAction(UIAlertAction(title: "Элемент", style: .default, handler: { [weak self] _ in
+            self?.showElementSelection()
+        }))
+        
         alert.addAction(UIAlertAction(title: "Снять фильтр", style: .destructive, handler: { [weak self] _ in
             self?.isFiltered = false
             self?.view?.reloadData()
@@ -142,6 +146,34 @@ extension CharacterPresenter: CharacterPresenterProtocol {
     private func filterByTier(_ tier: String) {
         isFiltered = true
         filteredCharacter = filterService.filterCharacterByTier(characters, tier: tier)
+        view?.reloadData()
+    }
+    
+    private func showElementSelection() {
+        let elementAlert = UIAlertController(title: "Выбери Элемент", message: nil, preferredStyle: .actionSheet)
+        let elements: [Element: String] = [
+            .fire: "Огонь",
+            .ice: "Лед",
+            .imaginary: "Мнимый",
+            .lightning: "Электро",
+            .physical: "Физический",
+            .quantum: "Квантовый",
+            .wind: "Ветряной"
+        ]
+        
+        for (element, displayName) in elements {
+            elementAlert.addAction(UIAlertAction(title: displayName, style: .default, handler: { [weak self] _ in
+                self?.filterByElement(element)
+            }))
+        }
+        elementAlert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+            
+        view?.present(elementAlert, animated: true)
+    }
+    
+    private func filterByElement(_ element: Element) {
+        isFiltered = true
+        filteredCharacter = filterService.filterCharacterbyElement(characters, element: element)
         view?.reloadData()
     }
     

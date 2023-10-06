@@ -56,6 +56,7 @@
 		9266D23E2A8E15490020D766 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9266D23D2A8E15490020D766 /* SDWebImage */; };
 		927AB3302AD07E980077BB4E /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB32F2AD07E980077BB4E /* FilterService.swift */; };
 		927AB3322AD07EB40077BB4E /* SortService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3312AD07EB40077BB4E /* SortService.swift */; };
+		927AB3352AD0B2770077BB4E /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 927AB3342AD0B2770077BB4E /* ProgressHUD */; };
 		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
 		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
 		92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717A2ACAB44C00457B08 /* DeveloperView.swift */; };
@@ -100,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				921F1A5E2AC7106C003B37E5 /* FirebaseFunctions in Frameworks */,
+				927AB3352AD0B2770077BB4E /* ProgressHUD in Frameworks */,
 				921F1A542AC7106C003B37E5 /* FirebaseDatabaseSwift in Frameworks */,
 				921F1A642AC7106C003B37E5 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				921F1A6A2AC7106C003B37E5 /* FirebaseMessaging in Frameworks */,
@@ -292,6 +294,7 @@
 				921F1A6F2AC7106C003B37E5 /* FirebaseRemoteConfigSwift */,
 				921F1A712AC7106C003B37E5 /* FirebaseStorage */,
 				921F1A732AC7106C003B37E5 /* FirebaseStorageCombine-Community */,
+				927AB3342AD0B2770077BB4E /* ProgressHUD */,
 			);
 			productName = "HSR - Guides and Tools";
 			productReference = 9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */;
@@ -324,6 +327,7 @@
 			packageReferences = (
 				9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				921F1A3E2AC7106C003B37E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				927AB3332AD0B2770077BB4E /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 9266D2032A8CC37E0020D766 /* Products */;
 			projectDirPath = "";
@@ -610,6 +614,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		927AB3332AD0B2770077BB4E /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.8.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -752,6 +764,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		927AB3342AD0B2770077BB4E /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 927AB3332AD0B2770077BB4E /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
