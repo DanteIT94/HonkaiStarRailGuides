@@ -34,17 +34,23 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
+    var appMetric = AppMetrics()
+    private let appMetricScreenName = "CharactersListVC"
     var presenter: CharacterPresenterProtocol?
     private var characters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .whiteDayNight
+        appMetric.reportEvent(screen: appMetricScreenName, event: .open, item: nil)
         presenter = CharacterPresenter(view: self)
         configureNavigationBar()
         configureCharacterTableView()
         presenter?.viewDidLoad()
-
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        appMetric.reportEvent(screen: appMetricScreenName, event: .close, item: nil)
     }
     
     //MARK: -Private Methods
@@ -103,10 +109,12 @@ class CharactersViewController: UIViewController {
     }
     
     @objc private func sortButtonTapped() {
+        appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .sortButtonTap)
         presenter?.sortButtonTapped()
     }
     
     @objc private func filterButtonTapped() {
+        appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .filterButtonTap)
         presenter?.filterButtonTapped()
     }
 }

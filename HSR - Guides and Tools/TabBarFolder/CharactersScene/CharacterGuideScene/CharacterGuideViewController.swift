@@ -52,6 +52,8 @@ final class CharacterGuideVC: UIViewController {
     private var statsView: StatsView!
     
     private var currentCharacter: Character?
+    var appMetric = AppMetrics()
+    private let appMetricScreenName = "CharacterGuideVC"
     
     init(character: Character) {
         self.currentCharacter = character
@@ -65,9 +67,14 @@ final class CharacterGuideVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .whiteDayNight
+        appMetric.reportEvent(screen: appMetricScreenName, event: .open, item: nil)
         configureNavigationBar()
         configLayout()
         loadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        appMetric.reportEvent(screen: appMetricScreenName, event: .close, item: nil)
     }
     
     private func configureNavigationBar() {
@@ -185,6 +192,7 @@ final class CharacterGuideVC: UIViewController {
     }
     
     @objc private func downloadGuidePicture() {
+        appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .imageGuideButtonTap)
         let alert = UIAlertController(title: "Скачать дополнительный гайд в виде картинки?", message: "P.S.: Данные могут отличаться ввиду разных взглядов авторов", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Да, скачать", style: .default, handler: { _ in
             ProgressHUD.show("Загрузка...")

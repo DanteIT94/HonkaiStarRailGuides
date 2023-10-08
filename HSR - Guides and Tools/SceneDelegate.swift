@@ -15,8 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let tabBarViewController = TabBarViewController()
-        window?.rootViewController = tabBarViewController
+        let loadingVC = LaunchLoadingViewController()
+        var view: CharactersView?
+        loadingVC.presenter = CharacterPresenter(view: view)
+        window?.rootViewController = loadingVC
         window?.makeKeyAndVisible()
     }
 

@@ -58,6 +58,12 @@
 		927AB3322AD07EB40077BB4E /* SortService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3312AD07EB40077BB4E /* SortService.swift */; };
 		927AB3352AD0B2770077BB4E /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 927AB3342AD0B2770077BB4E /* ProgressHUD */; };
 		927AB3372AD15AE00077BB4E /* Character + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3362AD15AE00077BB4E /* Character + Extension.swift */; };
+		927AB33A2AD2B2250077BB4E /* LaunchLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3392AD2B2250077BB4E /* LaunchLoadingViewController.swift */; };
+		927AB33D2AD30E450077BB4E /* YandexMobileMetrica in Frameworks */ = {isa = PBXBuildFile; productRef = 927AB33C2AD30E450077BB4E /* YandexMobileMetrica */; };
+		927AB33F2AD30E450077BB4E /* YandexMobileMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 927AB33E2AD30E450077BB4E /* YandexMobileMetricaCrashes */; };
+		927AB3432AD3133E0077BB4E /* AppMetricsParametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3422AD3133E0077BB4E /* AppMetricsParametrs.swift */; };
+		927AB3452AD313A40077BB4E /* AnalyticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3442AD313A40077BB4E /* AnalyticService.swift */; };
+		927AB3472AD327C70077BB4E /* AppMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3462AD327C70077BB4E /* AppMetric.swift */; };
 		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
 		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
 		92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717A2ACAB44C00457B08 /* DeveloperView.swift */; };
@@ -90,6 +96,10 @@
 		927AB32F2AD07E980077BB4E /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		927AB3312AD07EB40077BB4E /* SortService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortService.swift; sourceTree = "<group>"; };
 		927AB3362AD15AE00077BB4E /* Character + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character + Extension.swift"; sourceTree = "<group>"; };
+		927AB3392AD2B2250077BB4E /* LaunchLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLoadingViewController.swift; sourceTree = "<group>"; };
+		927AB3422AD3133E0077BB4E /* AppMetricsParametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetricsParametrs.swift; sourceTree = "<group>"; };
+		927AB3442AD313A40077BB4E /* AnalyticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticService.swift; sourceTree = "<group>"; };
+		927AB3462AD327C70077BB4E /* AppMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetric.swift; sourceTree = "<group>"; };
 		92E571752AC977D000457B08 /* InfoModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalViewController.swift; sourceTree = "<group>"; };
 		92E571772AC99FCC00457B08 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		92E5717A2ACAB44C00457B08 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
@@ -109,8 +119,10 @@
 				921F1A6A2AC7106C003B37E5 /* FirebaseMessaging in Frameworks */,
 				921F1A4A2AC7106C003B37E5 /* FirebaseAppDistribution-Beta in Frameworks */,
 				921F1A4E2AC7106C003B37E5 /* FirebaseAuthCombine-Community in Frameworks */,
+				927AB33F2AD30E450077BB4E /* YandexMobileMetricaCrashes in Frameworks */,
 				921F1A5A2AC7106C003B37E5 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				921F1A442AC7106C003B37E5 /* FirebaseAnalyticsSwift in Frameworks */,
+				927AB33D2AD30E450077BB4E /* YandexMobileMetrica in Frameworks */,
 				921F1A682AC7106C003B37E5 /* FirebaseMLModelDownloader in Frameworks */,
 				921F1A462AC7106C003B37E5 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				921F1A402AC7106C003B37E5 /* FirebaseAnalytics in Frameworks */,
@@ -137,13 +149,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */ = {
+		920BE3672A8FDDDB009B2F43 /* CharacterGuideScene */ = {
 			isa = PBXGroup;
 			children = (
 				920BE3702A90EC63009B2F43 /* Reuseable Views */,
 				920BE36E2A90C681009B2F43 /* CharacterGuideViewController.swift */,
 			);
-			path = CharacterGuideVC;
+			path = CharacterGuideScene;
 			sourceTree = "<group>";
 		};
 		920BE3682A901577009B2F43 /* Helpers */ = {
@@ -187,12 +199,14 @@
 		9266D2042A8CC37E0020D766 /* HSR - Guides and Tools */ = {
 			isa = PBXGroup;
 			children = (
+				927AB3382AD2B1E20077BB4E /* LaunchLoadingScene */,
 				9266D2372A8CF15A0020D766 /* FireBaseFolder */,
 				9266D2192A8CC4850020D766 /* TabBarFolder */,
 				9266D2052A8CC37E0020D766 /* AppDelegate.swift */,
 				9266D2072A8CC37E0020D766 /* SceneDelegate.swift */,
 				9266D20E2A8CC37F0020D766 /* Assets.xcassets */,
 				920BE3682A901577009B2F43 /* Helpers */,
+				927AB3402AD30E570077BB4E /* Services */,
 				9266D2102A8CC37F0020D766 /* LaunchScreen.storyboard */,
 				9266D2132A8CC37F0020D766 /* Info.plist */,
 				920BE3652A8FCA11009B2F43 /* GoogleService-Info.plist */,
@@ -218,7 +232,7 @@
 				924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */,
 				927AB32F2AD07E980077BB4E /* FilterService.swift */,
 				927AB3312AD07EB40077BB4E /* SortService.swift */,
-				920BE3672A8FDDDB009B2F43 /* CharacterGuideVC */,
+				920BE3672A8FDDDB009B2F43 /* CharacterGuideScene */,
 			);
 			path = CharactersScene;
 			sourceTree = "<group>";
@@ -240,6 +254,32 @@
 				927AB3362AD15AE00077BB4E /* Character + Extension.swift */,
 			);
 			path = FireBaseFolder;
+			sourceTree = "<group>";
+		};
+		927AB3382AD2B1E20077BB4E /* LaunchLoadingScene */ = {
+			isa = PBXGroup;
+			children = (
+				927AB3392AD2B2250077BB4E /* LaunchLoadingViewController.swift */,
+			);
+			path = LaunchLoadingScene;
+			sourceTree = "<group>";
+		};
+		927AB3402AD30E570077BB4E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				927AB3412AD30E670077BB4E /* AppMetrics */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		927AB3412AD30E670077BB4E /* AppMetrics */ = {
+			isa = PBXGroup;
+			children = (
+				927AB3422AD3133E0077BB4E /* AppMetricsParametrs.swift */,
+				927AB3442AD313A40077BB4E /* AnalyticService.swift */,
+				927AB3462AD327C70077BB4E /* AppMetric.swift */,
+			);
+			path = AppMetrics;
 			sourceTree = "<group>";
 		};
 		92E571792ACAB43200457B08 /* DeveloperView */ = {
@@ -298,6 +338,8 @@
 				921F1A712AC7106C003B37E5 /* FirebaseStorage */,
 				921F1A732AC7106C003B37E5 /* FirebaseStorageCombine-Community */,
 				927AB3342AD0B2770077BB4E /* ProgressHUD */,
+				927AB33C2AD30E450077BB4E /* YandexMobileMetrica */,
+				927AB33E2AD30E450077BB4E /* YandexMobileMetricaCrashes */,
 			);
 			productName = "HSR - Guides and Tools";
 			productReference = 9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */;
@@ -331,6 +373,7 @@
 				9266D23C2A8E15490020D766 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				921F1A3E2AC7106C003B37E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				927AB3332AD0B2770077BB4E /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				927AB33B2AD30E450077BB4E /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */,
 			);
 			productRefGroup = 9266D2032A8CC37E0020D766 /* Products */;
 			projectDirPath = "";
@@ -360,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9266D21D2A8CC6A50020D766 /* TabBarViewController.swift in Sources */,
+				927AB3432AD3133E0077BB4E /* AppMetricsParametrs.swift in Sources */,
 				920BE36F2A90C681009B2F43 /* CharacterGuideViewController.swift in Sources */,
 				924849D02ABCC24300433452 /* ItemView.swift in Sources */,
 				927AB3302AD07E980077BB4E /* FilterService.swift in Sources */,
@@ -369,13 +413,16 @@
 				927AB3322AD07EB40077BB4E /* SortService.swift in Sources */,
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
+				927AB3472AD327C70077BB4E /* AppMetric.swift in Sources */,
 				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
 				92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */,
 				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
 				92E571782AC99FCC00457B08 /* Strings.swift in Sources */,
 				9266D2232A8CC8400020D766 /* SettingsView.swift in Sources */,
 				9266D2212A8CC7920020D766 /* CharacterCell.swift in Sources */,
+				927AB3452AD313A40077BB4E /* AnalyticService.swift in Sources */,
 				92E5717F2ACCA8BE00457B08 /* ContactViews.swift in Sources */,
+				927AB33A2AD2B2250077BB4E /* LaunchLoadingViewController.swift in Sources */,
 				924849D42AC0515D00433452 /* StatsView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
 				927AB3372AD15AE00077BB4E /* Character + Extension.swift in Sources */,
@@ -626,6 +673,14 @@
 				minimumVersion = 13.8.4;
 			};
 		};
+		927AB33B2AD30E450077BB4E /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yandexmobile/metrica-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -773,6 +828,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 927AB3332AD0B2770077BB4E /* XCRemoteSwiftPackageReference "ProgressHUD" */;
 			productName = ProgressHUD;
+		};
+		927AB33C2AD30E450077BB4E /* YandexMobileMetrica */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 927AB33B2AD30E450077BB4E /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */;
+			productName = YandexMobileMetrica;
+		};
+		927AB33E2AD30E450077BB4E /* YandexMobileMetricaCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 927AB33B2AD30E450077BB4E /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */;
+			productName = YandexMobileMetricaCrashes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
