@@ -99,6 +99,10 @@ extension CharacterPresenter: CharacterPresenterProtocol {
             self?.showElementSelection()
         }))
         
+        alert.addAction(UIAlertAction(title: "Путь", style: .default, handler: { [weak self] _ in
+            self?.showPathSelection()
+        }))
+        
         alert.addAction(UIAlertAction(title: "Снять фильтр", style: .destructive, handler: { [weak self] _ in
             self?.isFiltered = false
             self?.view?.reloadData()
@@ -171,9 +175,29 @@ extension CharacterPresenter: CharacterPresenterProtocol {
         view?.present(elementAlert, animated: true)
     }
     
+    private func showPathSelection() {
+        let pathAlert = UIAlertController(title: "Выбери Путь", message: nil, preferredStyle: .actionSheet)
+        let paths: [Path] = [.abundance, .destruction, .erudition, .harmony, .hunt, .nihility, .preservation]
+        
+        for path in paths {
+            pathAlert.addAction(UIAlertAction(title: path.description, style: .default, handler: { [weak self] _ in
+                self?.filterByPath(path)
+            }))
+        }
+        
+        pathAlert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        view?.present(pathAlert, animated: true)
+    }
+    
     private func filterByElement(_ element: Element) {
         isFiltered = true
-        filteredCharacter = filterService.filterCharacterbyElement(characters, element: element)
+        filteredCharacter = filterService.filterCharacterByElement(characters, element: element)
+        view?.reloadData()
+    }
+    
+    private func filterByPath(_ path: Path) {
+        isFiltered = true
+        filteredCharacter = filterService.filterCharacterByPath(characters, path: path)
         view?.reloadData()
     }
     
