@@ -13,7 +13,11 @@ class FilterService {
         return characters.filter { $0.basicInfo?.tier == tier}
     }
     
-    func filterCharacterbyElement(_ characters: [Character], element: Element) -> [Character] {
+    func filterCharacterByElement(_ characters: [Character], element: Element) -> [Character] {
         return characters.filter { $0.elementType == element}
+    }
+    
+    func filterCharacterByPath(_ characters: [Character], path: Path) -> [Character] {
+        return characters.filter { $0.pathType == path }
     }
 }
