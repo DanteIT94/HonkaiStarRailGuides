@@ -17,9 +17,16 @@ protocol CharacterPresenterProtocol {
     func filterButtonTapped()
 }
 
+protocol ProgressDelegate: AnyObject {
+    func didLoadCharacters()
+//    func updateProgress(_ progress: Float)
+}
+
 final class CharacterPresenter {
     
     weak var view: CharactersView?
+    weak var progressDelegate: ProgressDelegate?
+    
     let firebaseManager: FirebaseManager
     let sortService: SortService
     let filterService: FilterService
@@ -31,7 +38,7 @@ final class CharacterPresenter {
     var filteredCharacter: [Character] = []
     var isFiltered: Bool = false
     
-    init(view: CharactersView) {
+    init(view: CharactersView?) {
         self.view = view
         self.firebaseManager = FirebaseManager()
         self.filterService = FilterService()
@@ -41,14 +48,19 @@ final class CharacterPresenter {
 
 extension CharacterPresenter: CharacterPresenterProtocol {
     func viewDidLoad() {
-        firebaseManager.fetchCharacters { [weak self] (loadedCharacters) in
+        firebaseManager.fetchCharacters(progress: { newProgress in
+            NotificationCenter.default.post(name: NSNotification.Name("updateProgressBar"),
+                                            object: nil,
+                                            userInfo: ["progress": newProgress])
+            }, completion: { [weak self] (loadedCharacters) in
             self?.characters = loadedCharacters.sorted {
                 (self?.tierOrder[$0.basicInfo?.tier ?? ""] ?? 100) < (self?.tierOrder[$1.basicInfo?.tier ?? ""] ?? 100)
             }
             DispatchQueue.main.async {
                 self?.view?.reloadData()
+                self?.progressDelegate?.didLoadCharacters()
             }
-        }
+        })
     }
     
     func numberOfRowsInsSection() -> Int {
