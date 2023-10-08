@@ -8,17 +8,15 @@
 import UIKit
 import FirebaseCore
 import Firebase
-//import UserNotifications
-//import FirebaseMessaging
+
 
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        AnalyticService.activate()
         //TODO: - Тут код для Firebase Messaging - к сожалению нужен аккаунт разработчика
 //        UNUserNotificationCenter.current().delegate = self
 //        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

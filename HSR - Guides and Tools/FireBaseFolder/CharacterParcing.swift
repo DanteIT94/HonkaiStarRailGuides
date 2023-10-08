@@ -97,8 +97,6 @@ extension Stat {
     }
 }
 
-
-
 struct BasicInfo: Codable {
     let gamePatch: String
     let rarity: String

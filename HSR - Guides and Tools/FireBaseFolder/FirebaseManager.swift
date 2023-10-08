@@ -18,11 +18,16 @@ class FirebaseManager {
         databaseReference = Database.database().reference()
     }
     
-    func fetchCharacters(completion: @escaping ([Character]) -> Void) {
+    func fetchCharacters(progress: @escaping (Float) -> Void, completion: @escaping ([Character]) -> Void) {
         databaseReference.child("characters").observe(.value) { (snapshot) in
             var loadedCharacters: [Character] = []
+            let totalChildren = Float(snapshot.childrenCount)
+            var currentProgress: Float = 0.0
             
             for child in snapshot.children {
+                currentProgress += 1.0
+                progress(currentProgress/totalChildren)
+                
                 if let childSnapshot = child as? DataSnapshot,
                    let dict = childSnapshot.value as? [String: Any] {
                     
