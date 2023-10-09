@@ -39,6 +39,7 @@
 		921F1A702AC7106C003B37E5 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 921F1A6F2AC7106C003B37E5 /* FirebaseRemoteConfigSwift */; };
 		921F1A722AC7106C003B37E5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 921F1A712AC7106C003B37E5 /* FirebaseStorage */; };
 		921F1A742AC7106C003B37E5 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 921F1A732AC7106C003B37E5 /* FirebaseStorageCombine-Community */; };
+		923192862AD3F360006FA657 /* Notitification.Name + Extens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923192852AD3F360006FA657 /* Notitification.Name + Extens.swift */; };
 		924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */; };
 		924849D02ABCC24300433452 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849CF2ABCC24300433452 /* ItemView.swift */; };
 		924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849D12ABDF9EB00433452 /* TopItemsView.swift */; };
@@ -77,6 +78,7 @@
 		920BE36E2A90C681009B2F43 /* CharacterGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGuideViewController.swift; sourceTree = "<group>"; };
 		920BE3712A90EDD3009B2F43 /* VerticalLabelsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelsStackView.swift; sourceTree = "<group>"; };
 		921F1A3C2AC58009003B37E5 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		923192852AD3F360006FA657 /* Notitification.Name + Extens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notitification.Name + Extens.swift"; sourceTree = "<group>"; };
 		924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
 		924849CF2ABCC24300433452 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		924849D12ABDF9EB00433452 /* TopItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				920BE3692A9015A3009B2F43 /* UIColor + Extension.swift */,
 				921F1A3C2AC58009003B37E5 /* MockData.swift */,
 				92E571772AC99FCC00457B08 /* Strings.swift */,
+				923192852AD3F360006FA657 /* Notitification.Name + Extens.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				927AB3452AD313A40077BB4E /* AnalyticService.swift in Sources */,
 				92E5717F2ACCA8BE00457B08 /* ContactViews.swift in Sources */,
 				927AB33A2AD2B2250077BB4E /* LaunchLoadingViewController.swift in Sources */,
+				923192862AD3F360006FA657 /* Notitification.Name + Extens.swift in Sources */,
 				924849D42AC0515D00433452 /* StatsView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
 				927AB3372AD15AE00077BB4E /* Character + Extension.swift in Sources */,
