@@ -17,6 +17,9 @@ struct SettingsView: View {
             Form {
                 Section(header: Text("Внешний Вид")) {
                     Toggle("Темная тема", isOn: $isDarkMode)
+                        .onChange(of: isDarkMode) { newValue in
+                            NotificationCenter.default.post(name: .didChangeTheme, object: nil)
+                        }
                 }
                 
                 Section(header: Text("Информация")) {

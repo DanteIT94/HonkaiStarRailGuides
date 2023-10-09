@@ -41,6 +41,7 @@ class CharactersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: .didChangeTheme, object: nil)
         view.backgroundColor = .whiteDayNight
         appMetric.reportEvent(screen: appMetricScreenName, event: .open, item: nil)
         presenter = CharacterPresenter(view: self)
@@ -104,6 +105,13 @@ class CharactersViewController: UIViewController {
     
     
     //MARK: -@OBJC Methods
+    @objc private func didChangeTheme() {
+        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        UIApplication.shared.windows.forEach { window in
+            window.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+        }
+    }
+    
     @objc private func scrollMenuButtonTapped() {
         
     }

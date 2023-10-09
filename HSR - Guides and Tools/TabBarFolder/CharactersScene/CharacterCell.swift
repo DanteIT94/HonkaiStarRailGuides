@@ -43,7 +43,7 @@ final class CharacterCell: UITableViewCell {
     
     let characterName: UILabel = {
         let label = UILabel()
-        label.textColor = .whiteDayNight
+        label.textColor = .blackUni
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Name"
         return label
