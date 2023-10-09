@@ -44,8 +44,8 @@ final class LaunchLoadingViewController: UIViewController {
         NSLayoutConstraint.activate([
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120),
-            logoImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -120),
+            logoImageView.widthAnchor.constraint(equalToConstant: 165),
+            logoImageView.heightAnchor.constraint(equalToConstant: 128),
             
             progressView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20),
             progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
