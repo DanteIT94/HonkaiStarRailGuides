@@ -27,50 +27,53 @@ struct DeveloperView: View {
                     }
                     .padding([.leading, .trailing], 20)
                 }
-                
-                VStack (alignment: .leading) {
-                    Text("Моя история")
-                        .font(.headline)
-                    Text("Тут более подробная инсформация обо мне ")
-                        .font(.subheadline)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Моя история")
+                            .font(.headline)
+                        Text("Я хочу рассказать вама о том как я стал разработчик ом я почему ")
+                            .font(.subheadline)
+                    }
+                    Spacer()  // Это заполнит все доступное пространство, и тем самым прижмет VStack к левому краю
                 }
                 .padding(.top)
                 .padding([.leading, .trailing], 20)
                 
-                VStack(alignment: .leading) {
-                    Text("Обратная связь")
-                        .font(.headline)
-                    Button(action: {
-                        viewModel.openDeveloperTelegram()
-                    
-                    }) {
-                        HStack {
-                            Image(systemName: "paperplane.fill")
-                            Text("Telegram:")
-                            Spacer()
-                            Text("@ChakyrIT")
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Обратная связь")
+                            .font(.headline)
+                        Button(action: {
+                            viewModel.openDeveloperTelegram()
+                        
+                        }) {
+                            HStack {
+                                Image(systemName: "paperplane.fill")
+                                Text("Telegram:")
+                                Spacer()
+                                Text("@ChakyrIT")
+                            }
+                        }
+                        .sheet(isPresented: $viewModel.showSafari) {
+                            if let url = viewModel.safariURL {
+                                SafariView(url: url)
+                            }
+                        }
+                        Button(action: {}) {
+                            HStack {
+                                Image(systemName: "envelope.fill")
+                                Text("Почта:")
+                                Spacer()
+                                Text("ChakyrIT@gmail.com")
+                            }
                         }
                     }
-                    .sheet(isPresented: $viewModel.showSafari) {
-                        if let url = viewModel.safariURL {
-                            SafariView(url: url)
-                        }
-                    }
-                    Button(action: {}) {
-                        HStack {
-                            Image(systemName: "envelope.fill")
-                            Text("Почта:")
-                            Spacer()
-                            Text("ChakyrIT@gmail.com")
-                        }
-                    }
+                    Spacer()
                 }
                 .padding(.top)
                 .padding([.leading, .trailing], 20)
-
             }
         }
-        .padding()
         .navigationBarTitle("О разработчике", displayMode: .inline)
     }
 }
