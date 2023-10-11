@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let didChangeTheme = Notification.Name("didChangeName")
+    static let showReviewAlert = Notification.Name("showReviewAlert")
 }
