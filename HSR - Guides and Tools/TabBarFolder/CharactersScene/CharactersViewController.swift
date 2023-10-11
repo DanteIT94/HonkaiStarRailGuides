@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 protocol CharactersView: AnyObject {
     func reloadData()
@@ -42,6 +43,7 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: .didChangeTheme, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showReviewAlert), name: .showReviewAlert, object: nil)
         view.backgroundColor = .whiteDayNight
         appMetric.reportEvent(screen: appMetricScreenName, event: .open, item: nil)
         presenter = CharacterPresenter(view: self)
@@ -110,6 +112,10 @@ class CharactersViewController: UIViewController {
         UIApplication.shared.windows.forEach { window in
             window.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
         }
+    }
+    
+    @objc private func showReviewAlert() {
+        SKStoreReviewController.requestReview()
     }
     
     @objc private func scrollMenuButtonTapped() {

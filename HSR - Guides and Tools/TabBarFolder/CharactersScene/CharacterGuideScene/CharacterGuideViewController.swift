@@ -77,6 +77,8 @@ final class CharacterGuideVC: UIViewController {
         appMetric.reportEvent(screen: appMetricScreenName, event: .close, item: nil)
     }
     
+    //MARK: - Private Methods
+    
     private func configureNavigationBar() {
         navigationItem.title = "\(currentCharacter?.name ?? "Персонаж")"
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeCharacterVC))
@@ -188,9 +190,20 @@ final class CharacterGuideVC: UIViewController {
             statsView.trailingAnchor.constraint(equalTo: weaponsView.trailingAnchor),
             statsView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16)
         ])
-        
     }
     
+    //Блок кода для подсчета когда можно показать аллерт
+    private func incrementCloseCounter() {
+        let closeCounter = UserDefaults.standard.integer(forKey: "closeCounter") + 1
+        UserDefaults.standard.set(closeCounter, forKey: "closeCounter")
+    }
+    
+    private func shouldShowAlert() -> Bool {
+        let closeCounter = UserDefaults.standard.integer(forKey: "closeCounter")
+        return closeCounter % 8 == 0
+    }
+    
+    //MARK: - OBJC Methods
     @objc private func downloadGuidePicture() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .imageGuideButtonTap)
         let alert = UIAlertController(title: "Скачать дополнительный гайд в виде картинки?", message: "P.S.: Данные могут отличаться ввиду разных взглядов авторов", preferredStyle: .actionSheet)
@@ -238,6 +251,13 @@ final class CharacterGuideVC: UIViewController {
     
     
     @objc private func closeCharacterVC() {
+        incrementCloseCounter()
+        
+        if shouldShowAlert() {
+            UserDefaults.standard.set(0, forKey: "closeCounter")
+            NotificationCenter.default.post(name: .showReviewAlert, object: nil)
+        }
+        
         navigationController?.popViewController(animated: true)
         print("Назад на экран выбора персонажа")
     }
