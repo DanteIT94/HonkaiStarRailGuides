@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         AnalyticService.activate()
+        UserDefaults.standard.set(0, forKey: "closeCounter")
         //TODO: - Тут код для Firebase Messaging - к сожалению нужен аккаунт разработчика
 //        UNUserNotificationCenter.current().delegate = self
 //        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
