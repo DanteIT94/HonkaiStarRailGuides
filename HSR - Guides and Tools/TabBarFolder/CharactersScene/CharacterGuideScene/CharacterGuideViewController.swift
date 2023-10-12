@@ -130,9 +130,9 @@ final class CharacterGuideVC: UIViewController {
         let newInfoData = [
             "Тир (Патч: \(currentCharacter?.basicInfo?.gamePatch ?? "N/A"))",
             "\(currentCharacter?.basicInfo?.tier ?? "N/A")",
-            "Роль в команде:",
+            "Роль в команде",
             "\(currentCharacter?.basicInfo?.role ?? "N/A")",
-            "Редкость: ",
+            "Редкость",
             "\(currentCharacter?.basicInfo?.rarity ?? "N/A")"
         ]
         characterVersionState.updateLabels(with: newInfoData)
