@@ -10,7 +10,8 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct SettingsView: View {
     
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = UserDefaults.standard.bool(forKey: "isDarkMode")
+    
     
     var body: some View {
         NavigationView {
@@ -21,10 +22,8 @@ struct SettingsView: View {
                             NotificationCenter.default.post(name: .didChangeTheme, object: nil)
                         }
                 }
-                
                 Section(header: Text("Информация")) {
                     NavigationLink("О разработчике", destination: DeveloperView())
-                    NavigationLink("Credits", destination: Text("Credits Info"))
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -33,9 +32,9 @@ struct SettingsView: View {
                     Text("Настройки").font(.headline)
                 }
             }
+        }.onAppear {
+            isDarkMode = UIApplication.shared.windows.first?.rootViewController?.traitCollection.userInterfaceStyle == .dark ? true : false
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
-        
     }
 }
 
