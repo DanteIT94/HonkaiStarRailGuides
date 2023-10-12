@@ -89,12 +89,12 @@ final class VerticalLabelsStackView: UIStackView {
         let button = UIButton(type: .infoLight)
         button.tag = index
         button.addTarget(self, action: #selector(infoButtonTapped(_ :)), for: .touchUpInside)
-        button.setImage(UIImage(systemName: "questionmark.bubble.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "info.circle.fill"), for: .normal)
         button.tintColor = .black
         container.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -5),
             button.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             button.widthAnchor.constraint(equalToConstant: 20),
             button.heightAnchor.constraint(equalTo: button.widthAnchor)
@@ -139,7 +139,3 @@ final class VerticalLabelsStackView: UIStackView {
 
 }
 
-//#Preview {
-//    let character = MockData.shared.mockCharacter
-//    return CharacterGuideVC(character: character)
-//}
