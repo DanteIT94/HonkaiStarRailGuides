@@ -18,6 +18,8 @@ class CharactersViewController: UIViewController {
     
     //MARK: - Private Properties
     
+    private let sideMenuWidth: CGFloat = UIScreen.main.bounds.width / 2
+    
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "backgroundImage")
@@ -35,6 +37,7 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
+    private var sideMenu: UIView?
     var appMetric = AppMetrics()
     private let appMetricScreenName = "CharactersListVC"
     var presenter: CharacterPresenterProtocol?
@@ -50,6 +53,7 @@ class CharactersViewController: UIViewController {
         configureNavigationBar()
         configureCharacterTableView()
         presenter?.viewDidLoad()
+        createSideMenu()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,7 +69,7 @@ class CharactersViewController: UIViewController {
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(filterButtonTapped))
         filterButton.tintColor = .blackDayNight
         
-        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(scrollMenuButtonTapped))
+        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(toogleSideMenu))
         leftButton.tintColor = .blackDayNight
         
         navigationItem.leftBarButtonItem = leftButton
@@ -102,9 +106,22 @@ class CharactersViewController: UIViewController {
             charactersTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    private func createSideMenu() {
+        let menu = UIView()
+        menu.backgroundColor = .gray
+        menu.frame = CGRect(x: -sideMenuWidth, y: 0, width: sideMenuWidth, height: view.frame.height)
+        view.addSubview(menu)
+        sideMenu = menu
+    }
     
     //MARK: - Methods
-    
+    private func animateMenu(to position: CGFloat) {
+        if let menu = sideMenu {
+            UIView.animate(withDuration: 0.5) {
+                menu.frame.origin.x = position
+            }
+        }
+    }
     
     //MARK: -@OBJC Methods
     @objc private func didChangeTheme() {
@@ -130,6 +147,16 @@ class CharactersViewController: UIViewController {
     @objc private func filterButtonTapped() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .filterButtonTap)
         presenter?.filterButtonTapped()
+    }
+    
+    @objc private func toogleSideMenu() {
+        if let menu = sideMenu {
+            let isOpened = menu.frame.origin.x == 0
+            print("\(isOpened)")
+            let targetX: CGFloat = isOpened ? -sideMenuWidth : 0
+            print("\(targetX)")
+            animateMenu(to: targetX)
+        }
     }
 }
 

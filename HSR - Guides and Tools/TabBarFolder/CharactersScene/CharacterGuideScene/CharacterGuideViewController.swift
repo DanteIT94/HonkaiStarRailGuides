@@ -206,10 +206,14 @@ final class CharacterGuideVC: UIViewController {
     //MARK: - OBJC Methods
     @objc private func downloadGuidePicture() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .imageGuideButtonTap)
-        let alert = UIAlertController(title: "Скачать дополнительный гайд в виде картинки?", message: "P.S.: Данные могут отличаться ввиду разных взглядов авторов", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Да, скачать", style: .default, handler: { _ in
+        let alert = UIAlertController(title: NSLocalizedString(Texts.ImageGuide.alertTitle, comment: ""),
+                                      message: NSLocalizedString(Texts.ImageGuide.alertMessage, comment: ""),
+                                      preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString(Texts.ImageGuide.downloadButton, comment: ""),
+                                      style: .default,
+                                      handler: { _ in
             ProgressHUD.show("Загрузка...")
-            
             if let stringURL = self.currentCharacter?.guideImageURL, let imageURL = URL(string: stringURL) {
                 SDWebImageManager.shared.loadImage(with: imageURL,
                                                    options: .highPriority,
@@ -224,7 +228,9 @@ final class CharacterGuideVC: UIViewController {
             }
         }))
         
-        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString(Texts.ImageGuide.cancelButton, comment: ""),
+                                      style: .cancel,
+                                      handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

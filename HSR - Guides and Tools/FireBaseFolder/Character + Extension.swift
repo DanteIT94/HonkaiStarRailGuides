@@ -22,6 +22,7 @@ extension Character {
             return .quantum
         case "https://firebasestorage.googleapis.com/v0/b/hsr---guides-and-tools.appspot.com/o/Elements%2FType_Wind.jpeg?alt=media&token=4dc817b6-f825-4aa0-ad79-15c00a3aa394":
             return .wind
+    
         default:
             return .physical // или любой другой стандартный элемент, если URL не совпадает
         }
