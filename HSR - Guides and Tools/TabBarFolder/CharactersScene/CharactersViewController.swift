@@ -37,7 +37,7 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
-    private var sideMenu: UIView?
+    private var sideMenu: SideMenu?
     var appMetric = AppMetrics()
     private let appMetricScreenName = "CharactersListVC"
     var presenter: CharacterPresenterProtocol?
@@ -53,7 +53,7 @@ class CharactersViewController: UIViewController {
         configureNavigationBar()
         configureCharacterTableView()
         presenter?.viewDidLoad()
-        createSideMenu()
+        sideMenu = SideMenu(delegate: self, in: view)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -106,22 +106,6 @@ class CharactersViewController: UIViewController {
             charactersTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    private func createSideMenu() {
-        let menu = UIView()
-        menu.backgroundColor = .gray
-        menu.frame = CGRect(x: -sideMenuWidth, y: 0, width: sideMenuWidth, height: view.frame.height)
-        view.addSubview(menu)
-        sideMenu = menu
-    }
-    
-    //MARK: - Methods
-    private func animateMenu(to position: CGFloat) {
-        if let menu = sideMenu {
-            UIView.animate(withDuration: 0.5) {
-                menu.frame.origin.x = position
-            }
-        }
-    }
     
     //MARK: -@OBJC Methods
     @objc private func didChangeTheme() {
@@ -150,13 +134,7 @@ class CharactersViewController: UIViewController {
     }
     
     @objc private func toogleSideMenu() {
-        if let menu = sideMenu {
-            let isOpened = menu.frame.origin.x == 0
-            print("\(isOpened)")
-            let targetX: CGFloat = isOpened ? -sideMenuWidth : 0
-            print("\(targetX)")
-            animateMenu(to: targetX)
-        }
+        sideMenu?.activateMenu()
     }
 }
 
@@ -173,6 +151,18 @@ extension CharactersViewController: CharactersView {
         let characterVC = CharacterGuideVC(character: character)
         navigationController?.pushViewController(characterVC, animated: true)
     }
+}
+
+extension CharactersViewController: SideMenuDelegate {
+    func sideMenuToggleRequested() {
+        toogleSideMenu()
+    }
+    
+    func resourceButtonTapped() {
+            // Здесь код для перехода на экран "Подсчет ресурсов"
+        }
+    
+    
 }
 
 
@@ -202,7 +192,6 @@ extension CharactersViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter?.didSelectRowAt(indexPath: indexPath)
     }
-    
 }
 
 

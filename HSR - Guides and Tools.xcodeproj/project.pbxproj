@@ -65,6 +65,7 @@
 		927AB3432AD3133E0077BB4E /* AppMetricsParametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3422AD3133E0077BB4E /* AppMetricsParametrs.swift */; };
 		927AB3452AD313A40077BB4E /* AnalyticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3442AD313A40077BB4E /* AnalyticService.swift */; };
 		927AB3472AD327C70077BB4E /* AppMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AB3462AD327C70077BB4E /* AppMetric.swift */; };
+		929F91D02AE02B59003042BB /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F91CF2AE02B59003042BB /* SideMenuView.swift */; };
 		92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571752AC977D000457B08 /* InfoModalViewController.swift */; };
 		92E571782AC99FCC00457B08 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E571772AC99FCC00457B08 /* Strings.swift */; };
 		92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5717A2ACAB44C00457B08 /* DeveloperView.swift */; };
@@ -102,6 +103,7 @@
 		927AB3422AD3133E0077BB4E /* AppMetricsParametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetricsParametrs.swift; sourceTree = "<group>"; };
 		927AB3442AD313A40077BB4E /* AnalyticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticService.swift; sourceTree = "<group>"; };
 		927AB3462AD327C70077BB4E /* AppMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetric.swift; sourceTree = "<group>"; };
+		929F91CF2AE02B59003042BB /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		92E571752AC977D000457B08 /* InfoModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalViewController.swift; sourceTree = "<group>"; };
 		92E571772AC99FCC00457B08 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		92E5717A2ACAB44C00457B08 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		9266D21A2A8CC4AD0020D766 /* CharactersScene */ = {
 			isa = PBXGroup;
 			children = (
+				929F91CE2AE02B3E003042BB /* SideMenuView */,
 				9266D21E2A8CC7460020D766 /* CharactersViewController.swift */,
 				9266D2202A8CC7920020D766 /* CharacterCell.swift */,
 				924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */,
@@ -283,6 +286,14 @@
 				927AB3462AD327C70077BB4E /* AppMetric.swift */,
 			);
 			path = AppMetrics;
+			sourceTree = "<group>";
+		};
+		929F91CE2AE02B3E003042BB /* SideMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				929F91CF2AE02B59003042BB /* SideMenuView.swift */,
+			);
+			path = SideMenuView;
 			sourceTree = "<group>";
 		};
 		92E571792ACAB43200457B08 /* DeveloperView */ = {
@@ -417,6 +428,7 @@
 				9266D21F2A8CC7460020D766 /* CharactersViewController.swift in Sources */,
 				9266D23B2A8CF2550020D766 /* CharacterParcing.swift in Sources */,
 				927AB3472AD327C70077BB4E /* AppMetric.swift in Sources */,
+				929F91D02AE02B59003042BB /* SideMenuView.swift in Sources */,
 				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
 				92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */,
 				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
