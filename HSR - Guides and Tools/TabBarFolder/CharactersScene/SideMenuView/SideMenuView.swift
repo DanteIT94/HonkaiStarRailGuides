@@ -29,7 +29,6 @@ final class SideMenu {
         menu.frame = CGRect(x: -sideMenuWidth, y: 0, width: sideMenuWidth, height: view.frame.height)
         view.addSubview(menu)
         sideMenuView = menu
-        addResourceButton()
     }
     
     func activateMenu() {
@@ -42,11 +41,29 @@ final class SideMenu {
         }
     }
     
-    private func addResourceButton() {
+    func addResourceButton(with traitCollection: UITraitCollection) {
         let button = UIButton(type: .system)
-        button.setTitle("Подсчет Смолы", for: .normal)
+        button.setTitle("Счетчик Энергии", for: .normal)
+        button.setTitleColor(.whiteDayNight, for: .normal)
         button.addTarget(self, action: #selector(resourceButtonTapped), for: .touchUpInside)
-        button.frame = CGRect(x: 20, y: 100, width: 150, height: 150)
+        
+        button.backgroundColor = .blackDayNight
+        button.layer.cornerRadius = 10
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            button.layer.shadowColor = UIColor.blackDayNight.cgColor
+        } else {
+            button.layer.shadowColor = UIColor.whiteDayNight.cgColor
+        }
+        
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.5
+        
+        //задаем размер
+        button.frame = CGRect(x: 20, y: 100, width: 150, height: 50)
+        
+        //Добавляем на Вьюху
         sideMenuView?.addSubview(button)
     }
     

@@ -381,9 +381,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "didChangeTheme()"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "sortButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -397,9 +397,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "didChangeTheme()"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "sortButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -413,10 +413,10 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "showReviewAlert()"
-            landmarkType = "7">
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "CharactersViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -429,9 +429,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "toogleSideMenu()"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "presentCharacterGuideVC(character:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
