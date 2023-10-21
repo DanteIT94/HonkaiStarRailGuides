@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import StoreKit
 
 protocol CharactersView: AnyObject {
@@ -54,6 +55,7 @@ class CharactersViewController: UIViewController {
         configureCharacterTableView()
         presenter?.viewDidLoad()
         sideMenu = SideMenu(delegate: self, in: view)
+        sideMenu?.addResourceButton(with: traitCollection)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -74,7 +76,7 @@ class CharactersViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItems = [sortButton, filterButton]
-
+        
         let titleLabel = UILabel()
         titleLabel.text = "Персонажи"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -159,9 +161,13 @@ extension CharactersViewController: SideMenuDelegate {
     }
     
     func resourceButtonTapped() {
-            // Здесь код для перехода на экран "Подсчет ресурсов"
+        if #available(iOS 14.0, *) {
+            let energyVC = UIHostingController(rootView: EnergyView())
+            navigationController?.pushViewController(energyVC, animated: true)
+        } else {
+            // Fallback on earlier versions
         }
-    
+    }
     
 }
 
@@ -180,7 +186,7 @@ extension CharactersViewController: UITableViewDataSource {
         cell.contentView.backgroundColor = .clear
         
         if let character = presenter?.characterAtIndexPath(indexPath) {
-                cell.configure(with: character)
+            cell.configure(with: character)
         }
         return cell
     }
