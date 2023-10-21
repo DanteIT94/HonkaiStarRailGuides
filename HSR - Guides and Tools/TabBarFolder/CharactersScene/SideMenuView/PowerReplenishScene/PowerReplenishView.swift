@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UserNotifications
+
 
 @available(iOS 14.0, *)
 struct EnergyView: View {
@@ -29,12 +31,18 @@ struct EnergyView: View {
                         if let value = Int(energyValue), value > 240 {
                             energyValue = "240"
                         }
+                        scheduleEnergyFullNotification(currentEnergy: Int(energyValue) ?? 0)
                     }
                     .frame(width: 100)
                 }
                 
             }
             .padding(.horizontal, 40)
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: NSNotification.Name("energyFull"), object: nil, queue: .main) { _ in
+                    self.energyValue = "240"
+                }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -43,7 +51,30 @@ struct EnergyView: View {
             }
         }
     }
+    
+    func scheduleEnergyFullNotification(currentEnergy: Int) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        let energyToBeFilled = 240 - currentEnergy
+        if energyToBeFilled <= 0 { return }
+        let timeToBeFilled =  Double(energyToBeFilled) * 1 * 60
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Эй, Первопроходец!"
+        content.body = "Энергия достигла максимума!"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeToBeFilled, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "energyFullNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Ошибка при планировании уведомления: \(error)")
+                    }
+                }
+    }
 }
+
 
 @available(iOS 14.0, *)
 struct EnergyView_Previews: PreviewProvider {
