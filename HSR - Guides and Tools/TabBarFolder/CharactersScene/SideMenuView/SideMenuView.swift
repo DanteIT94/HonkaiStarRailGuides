@@ -10,6 +10,8 @@ import UIKit
 protocol SideMenuDelegate: AnyObject {
     func sideMenuToggleRequested()
     func resourceButtonTapped()
+    func didOpenMenu()
+    func didCloseMenu()
 }
 
 final class SideMenu {
@@ -37,8 +39,25 @@ final class SideMenu {
             let targetX: CGFloat = isOpened ? -sideMenuWidth : 0
             UIView.animate(withDuration: 0.5) {
                 menu.frame.origin.x = targetX
+            } completion: { _ in
+                if isOpened {
+                    self.delegate?.didCloseMenu()
+                } else {
+                    self.delegate?.didOpenMenu()
+                }
             }
         }
+    }
+    
+    func deactivateMenu() {
+        if let menu = sideMenuView {
+            if menu.frame.origin.x == 0 {
+                UIView.animate(withDuration: 0.5) {
+                    menu.frame.origin.x = -self.sideMenuWidth
+                }
+            }
+        }
+        delegate?.didCloseMenu()
     }
     
     func addResourceButton(with traitCollection: UITraitCollection) {

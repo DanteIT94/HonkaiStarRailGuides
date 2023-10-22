@@ -15,6 +15,7 @@ struct NumberTextField: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
         textField.keyboardType = .numberPad
+        textField.textAlignment = .center
         textField.delegate = context.coordinator
         
         let toolbar = UIToolbar()

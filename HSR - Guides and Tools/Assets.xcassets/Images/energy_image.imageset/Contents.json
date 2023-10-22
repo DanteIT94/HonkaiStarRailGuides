@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Programmyi-dlya-sozdaniya-avatarok 2.png",
+      "filename" : "trailblazerPower_image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Programmyi-dlya-sozdaniya-avatarok 1.png",
+      "filename" : "trailblazerPower_image 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Programmyi-dlya-sozdaniya-avatarok.png",
+      "filename" : "trailblazerPower_image 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
