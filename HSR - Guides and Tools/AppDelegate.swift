@@ -9,8 +9,6 @@ import UIKit
 import FirebaseCore
 import Firebase
 
-
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
@@ -18,30 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         AnalyticService.activate()
         UserDefaults.standard.set(0, forKey: "closeCounter")
-        //TODO: - Тут код для Firebase Messaging - к сожалению нужен аккаунт разработчика
-//        UNUserNotificationCenter.current().delegate = self
-//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//        UNUserNotificationCenter.current().requestAuthorization(
-//        options: authOptions,
-//        completionHandler: {_, _ in }
-//        )
-//        
-//        Messaging.messaging().delegate = self
-//        
-//        Messaging.messaging().token { token, error in
-//            if let error = error {
-//                print("Error fetching FCM registration token: \(error)")
-//            } else if let token = token {
-//                print("FCM registration token: \(token)")
-//            }
-//        }
-//        
-//        application.registerForRemoteNotifications()
-
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+                    if granted {
+                        print("Notification permission granted.")
+                    } else {
+                        print("Notification permission denied.")
+                    }
+                }
+        
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
     
-
+    //метод для обновления энергии до 240 единиц при получении уведомления
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.notification.request.identifier == "energyFullNotification" {
+            UserDefaults.standard.setValue("240", forKey: "energyValue")
+        }
+        completionHandler()
+    }
+ 
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

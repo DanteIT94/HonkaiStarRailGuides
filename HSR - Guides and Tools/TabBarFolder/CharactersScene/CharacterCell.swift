@@ -14,6 +14,10 @@ final class CharacterCell: UITableViewCell {
     
     let cellUIView: UIView = {
         let view = UIView()
+        view.layer.shadowColor = UIColor.blackDayNight.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.5
         return view
     }()
     

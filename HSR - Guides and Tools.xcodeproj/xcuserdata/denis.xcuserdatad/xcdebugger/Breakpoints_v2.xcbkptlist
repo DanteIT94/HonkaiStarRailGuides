@@ -381,9 +381,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "didChangeTheme()"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "sortButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -397,9 +397,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "didChangeTheme()"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "sortButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -413,9 +413,9 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "showReviewAlert()"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "filterButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -429,9 +429,104 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/CharactersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "toogleSideMenu()"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "presentCharacterGuideVC(character:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3959A797-5D6C-4516-8101-1EAC8C1307F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "scheduleEnergyFullNotification(currentEnergy:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78D24E9B-9FDD-45D1-ABFD-973CC205B5B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "scheduleEnergyFullNotification(currentEnergy:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78D24E9B-9FDD-45D1-ABFD-973CC205B5B2 - f67d14597399cfa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HSR___Guides_and_Tools.EnergyView.scheduleEnergyFullNotification(currentEnergy: Swift.Int) -&gt; ()"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "78D24E9B-9FDD-45D1-ABFD-973CC205B5B2 - f67d14597399cfa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HSR___Guides_and_Tools.EnergyView.scheduleEnergyFullNotification(currentEnergy: Swift.Int) -&gt; ()"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "78D24E9B-9FDD-45D1-ABFD-973CC205B5B2 - 1dfe05b64f785f78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HSR___Guides_and_Tools.EnergyView.scheduleEnergyFullNotification(currentEnergy: Swift.Int) -&gt; ()"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5844C26-F3D9-4958-8639-AABB18547A47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "updateEnergy()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

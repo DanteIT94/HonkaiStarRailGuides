@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import StoreKit
 
 protocol CharactersView: AnyObject {
@@ -37,7 +38,9 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
-    private var sideMenu: UIView?
+    private var leftButton: UIBarButtonItem?
+    
+    private var sideMenu: SideMenu?
     var appMetric = AppMetrics()
     private let appMetricScreenName = "CharactersListVC"
     var presenter: CharacterPresenterProtocol?
@@ -53,10 +56,13 @@ class CharactersViewController: UIViewController {
         configureNavigationBar()
         configureCharacterTableView()
         presenter?.viewDidLoad()
-        createSideMenu()
+        sideMenu = SideMenu(delegate: self, in: view)
+        sideMenu?.addResourceButton(with: traitCollection)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sideMenu?.deactivateMenu()
         appMetric.reportEvent(screen: appMetricScreenName, event: .close, item: nil)
     }
     
@@ -69,12 +75,12 @@ class CharactersViewController: UIViewController {
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(filterButtonTapped))
         filterButton.tintColor = .blackDayNight
         
-        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(toogleSideMenu))
-        leftButton.tintColor = .blackDayNight
+        leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(toogleSideMenu))
+        leftButton?.tintColor = .blackDayNight
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItems = [sortButton, filterButton]
-
+        
         let titleLabel = UILabel()
         titleLabel.text = "Персонажи"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -106,22 +112,6 @@ class CharactersViewController: UIViewController {
             charactersTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    private func createSideMenu() {
-        let menu = UIView()
-        menu.backgroundColor = .gray
-        menu.frame = CGRect(x: -sideMenuWidth, y: 0, width: sideMenuWidth, height: view.frame.height)
-        view.addSubview(menu)
-        sideMenu = menu
-    }
-    
-    //MARK: - Methods
-    private func animateMenu(to position: CGFloat) {
-        if let menu = sideMenu {
-            UIView.animate(withDuration: 0.5) {
-                menu.frame.origin.x = position
-            }
-        }
-    }
     
     //MARK: -@OBJC Methods
     @objc private func didChangeTheme() {
@@ -135,9 +125,9 @@ class CharactersViewController: UIViewController {
         SKStoreReviewController.requestReview()
     }
     
-    @objc private func scrollMenuButtonTapped() {
-        
-    }
+//    @objc private func scrollMenuButtonTapped() {
+//        
+//    }
     
     @objc private func sortButtonTapped() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .sortButtonTap)
@@ -150,13 +140,7 @@ class CharactersViewController: UIViewController {
     }
     
     @objc private func toogleSideMenu() {
-        if let menu = sideMenu {
-            let isOpened = menu.frame.origin.x == 0
-            print("\(isOpened)")
-            let targetX: CGFloat = isOpened ? -sideMenuWidth : 0
-            print("\(targetX)")
-            animateMenu(to: targetX)
-        }
+        sideMenu?.activateMenu()
     }
 }
 
@@ -175,6 +159,30 @@ extension CharactersViewController: CharactersView {
     }
 }
 
+extension CharactersViewController: SideMenuDelegate {
+    func sideMenuToggleRequested() {
+        toogleSideMenu()
+    }
+    
+    func resourceButtonTapped() {
+        if #available(iOS 15.0, *) {
+            let energyVC = UIHostingController(rootView: EnergyView())
+            navigationController?.pushViewController(energyVC, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func didOpenMenu() {
+        leftButton?.image = UIImage(systemName: "minus")
+    }
+    
+    func didCloseMenu() {
+        leftButton?.image = UIImage(systemName: "plus")
+    }
+    
+}
+
 
 //MARK:  -UITableViewDataSource
 extension CharactersViewController: UITableViewDataSource {
@@ -190,7 +198,7 @@ extension CharactersViewController: UITableViewDataSource {
         cell.contentView.backgroundColor = .clear
         
         if let character = presenter?.characterAtIndexPath(indexPath) {
-                cell.configure(with: character)
+            cell.configure(with: character)
         }
         return cell
     }
@@ -202,7 +210,6 @@ extension CharactersViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter?.didSelectRowAt(indexPath: indexPath)
     }
-    
 }
 
 
