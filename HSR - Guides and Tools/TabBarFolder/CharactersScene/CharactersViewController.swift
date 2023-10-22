@@ -38,6 +38,8 @@ class CharactersViewController: UIViewController {
         return tableView
     }()
     
+    private var leftButton: UIBarButtonItem?
+    
     private var sideMenu: SideMenu?
     var appMetric = AppMetrics()
     private let appMetricScreenName = "CharactersListVC"
@@ -59,6 +61,8 @@ class CharactersViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sideMenu?.deactivateMenu()
         appMetric.reportEvent(screen: appMetricScreenName, event: .close, item: nil)
     }
     
@@ -71,8 +75,8 @@ class CharactersViewController: UIViewController {
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(filterButtonTapped))
         filterButton.tintColor = .blackDayNight
         
-        let leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(toogleSideMenu))
-        leftButton.tintColor = .blackDayNight
+        leftButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(toogleSideMenu))
+        leftButton?.tintColor = .blackDayNight
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItems = [sortButton, filterButton]
@@ -121,9 +125,9 @@ class CharactersViewController: UIViewController {
         SKStoreReviewController.requestReview()
     }
     
-    @objc private func scrollMenuButtonTapped() {
-        
-    }
+//    @objc private func scrollMenuButtonTapped() {
+//        
+//    }
     
     @objc private func sortButtonTapped() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .sortButtonTap)
@@ -161,12 +165,20 @@ extension CharactersViewController: SideMenuDelegate {
     }
     
     func resourceButtonTapped() {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 15.0, *) {
             let energyVC = UIHostingController(rootView: EnergyView())
             navigationController?.pushViewController(energyVC, animated: true)
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    func didOpenMenu() {
+        leftButton?.image = UIImage(systemName: "minus")
+    }
+    
+    func didCloseMenu() {
+        leftButton?.image = UIImage(systemName: "plus")
     }
     
 }
