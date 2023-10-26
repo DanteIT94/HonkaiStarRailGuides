@@ -44,6 +44,9 @@
 		924849D02ABCC24300433452 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849CF2ABCC24300433452 /* ItemView.swift */; };
 		924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849D12ABDF9EB00433452 /* TopItemsView.swift */; };
 		924849D42AC0515D00433452 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924849D32AC0515D00433452 /* StatsView.swift */; };
+		92609C7B2AEA807C00406997 /* ChractersProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609C7A2AEA807C00406997 /* ChractersProgressView.swift */; };
+		92609C7E2AEA851700406997 /* CharacterProgressModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92609C7C2AEA851700406997 /* CharacterProgressModel.xcdatamodeld */; };
+		92609C812AEA8DD600406997 /* CharacterProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609C802AEA8DD600406997 /* CharacterProgressCell.swift */; };
 		9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2052A8CC37E0020D766 /* AppDelegate.swift */; };
 		9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266D2072A8CC37E0020D766 /* SceneDelegate.swift */; };
 		9266D20F2A8CC37F0020D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9266D20E2A8CC37F0020D766 /* Assets.xcassets */; };
@@ -86,6 +89,9 @@
 		924849CF2ABCC24300433452 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		924849D12ABDF9EB00433452 /* TopItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsView.swift; sourceTree = "<group>"; };
 		924849D32AC0515D00433452 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		92609C7A2AEA807C00406997 /* ChractersProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChractersProgressView.swift; sourceTree = "<group>"; };
+		92609C7D2AEA851700406997 /* CharacterProgressModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterProgressModel.xcdatamodel; sourceTree = "<group>"; };
+		92609C802AEA8DD600406997 /* CharacterProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterProgressCell.swift; sourceTree = "<group>"; };
 		9266D2022A8CC37E0020D766 /* HSR - Guides and Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR - Guides and Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9266D2052A8CC37E0020D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9266D2072A8CC37E0020D766 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +195,23 @@
 			path = "Reuseable Views";
 			sourceTree = "<group>";
 		};
+		92609C792AEA804E00406997 /* CharactersProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				92609C7A2AEA807C00406997 /* ChractersProgressView.swift */,
+				92609C802AEA8DD600406997 /* CharacterProgressCell.swift */,
+			);
+			path = CharactersProgressView;
+			sourceTree = "<group>";
+		};
+		92609C7F2AEA854500406997 /* CoreDataFolder */ = {
+			isa = PBXGroup;
+			children = (
+				92609C7C2AEA851700406997 /* CharacterProgressModel.xcdatamodeld */,
+			);
+			path = CoreDataFolder;
+			sourceTree = "<group>";
+		};
 		9266D1F92A8CC37E0020D766 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +231,7 @@
 		9266D2042A8CC37E0020D766 /* HSR - Guides and Tools */ = {
 			isa = PBXGroup;
 			children = (
+				92609C7F2AEA854500406997 /* CoreDataFolder */,
 				927AB3382AD2B1E20077BB4E /* LaunchLoadingScene */,
 				9266D2372A8CF15A0020D766 /* FireBaseFolder */,
 				9266D2192A8CC4850020D766 /* TabBarFolder */,
@@ -227,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */,
+				929F91CE2AE02B3E003042BB /* SideMenuView */,
 				9266D21A2A8CC4AD0020D766 /* CharactersScene */,
 				9266D21B2A8CC4C50020D766 /* OptionsViewController */,
 			);
@@ -236,7 +261,6 @@
 		9266D21A2A8CC4AD0020D766 /* CharactersScene */ = {
 			isa = PBXGroup;
 			children = (
-				929F91CE2AE02B3E003042BB /* SideMenuView */,
 				9266D21E2A8CC7460020D766 /* CharactersViewController.swift */,
 				9266D2202A8CC7920020D766 /* CharacterCell.swift */,
 				924849CD2ABC6B3D00433452 /* CharactersPresenter.swift */,
@@ -295,6 +319,7 @@
 		929F91CE2AE02B3E003042BB /* SideMenuView */ = {
 			isa = PBXGroup;
 			children = (
+				92609C792AEA804E00406997 /* CharactersProgressView */,
 				929F91D12AE12DA0003042BB /* PowerReplenishScene */,
 				929F91CF2AE02B59003042BB /* SideMenuView.swift */,
 			);
@@ -437,6 +462,7 @@
 				924849D02ABCC24300433452 /* ItemView.swift in Sources */,
 				927AB3302AD07E980077BB4E /* FilterService.swift in Sources */,
 				924849D22ABDF9EB00433452 /* TopItemsView.swift in Sources */,
+				92609C812AEA8DD600406997 /* CharacterProgressCell.swift in Sources */,
 				92E5717B2ACAB44C00457B08 /* DeveloperView.swift in Sources */,
 				920BE3722A90EDD3009B2F43 /* VerticalLabelsStackView.swift in Sources */,
 				927AB3322AD07EB40077BB4E /* SortService.swift in Sources */,
@@ -446,6 +472,7 @@
 				929F91D02AE02B59003042BB /* SideMenuView.swift in Sources */,
 				924849CE2ABC6B3D00433452 /* CharactersPresenter.swift in Sources */,
 				92E571762AC977D000457B08 /* InfoModalViewController.swift in Sources */,
+				92609C7E2AEA851700406997 /* CharacterProgressModel.xcdatamodeld in Sources */,
 				9266D2392A8CF1760020D766 /* FirebaseManager.swift in Sources */,
 				92E571782AC99FCC00457B08 /* Strings.swift in Sources */,
 				9266D2232A8CC8400020D766 /* SettingsView.swift in Sources */,
@@ -457,6 +484,7 @@
 				929F91D32AE15A26003042BB /* PowerReplenishView.swift in Sources */,
 				924849D42AC0515D00433452 /* StatsView.swift in Sources */,
 				9266D2062A8CC37E0020D766 /* AppDelegate.swift in Sources */,
+				92609C7B2AEA807C00406997 /* ChractersProgressView.swift in Sources */,
 				927AB3372AD15AE00077BB4E /* Character + Extension.swift in Sources */,
 				921F1A3D2AC58009003B37E5 /* MockData.swift in Sources */,
 				9266D2082A8CC37E0020D766 /* SceneDelegate.swift in Sources */,
@@ -872,6 +900,19 @@
 			productName = YandexMobileMetricaCrashes;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		92609C7C2AEA851700406997 /* CharacterProgressModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92609C7D2AEA851700406997 /* CharacterProgressModel.xcdatamodel */,
+			);
+			currentVersion = 92609C7D2AEA851700406997 /* CharacterProgressModel.xcdatamodel */;
+			path = CharacterProgressModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9266D1FA2A8CC37E0020D766 /* Project object */;
 }

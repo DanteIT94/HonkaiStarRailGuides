@@ -445,8 +445,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "scheduleEnergyFullNotification(currentEnergy:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -461,8 +461,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "scheduleEnergyFullNotification(currentEnergy:)"
             landmarkType = "7">
             <Locations>
@@ -524,8 +524,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/CharactersScene/SideMenuView/PowerReplenishScene/PowerReplenishView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "updateEnergy()"
             landmarkType = "7">
          </BreakpointContent>
