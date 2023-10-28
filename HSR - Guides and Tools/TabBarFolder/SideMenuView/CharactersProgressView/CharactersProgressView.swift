@@ -62,7 +62,20 @@ struct CharactersProgressView: View {
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                             ForEach(characters, id: \.characterName) { character in
-                                CharacterProgressCell(characterImage: character.characterImage, characterName: character.characterName, isCharacterMax: character.isCharacterMax, isRelicsGood: character.isRelicsGood, isWeaponGood: character.isWeaponGood)
+                                NavigationLink(destination:
+                                                CurrentCharacterView(character: MockCharacter(
+                                                    name: character.characterName,
+                                                    icon: character.characterImage,
+                                                    isBodyOk: character.isCharacterMax,
+                                                    isChainOk: character.isRelicsGood,
+                                                    isFeetOk: character.isWeaponGood,
+                                                    isHandsOk: true,
+                                                    isHeadOk: false,
+                                                    isLevelMax: true,
+                                                    isSphereOk: false,
+                                                    isTraitMax: false, isWeaponOk: true))){
+                                                        CharacterProgressCell(characterImage: character.characterImage, characterName: character.characterName, isCharacterMax: character.isCharacterMax, isRelicsGood: character.isRelicsGood, isWeaponGood: character.isWeaponGood)
+                                                    }
                             }
                         }
                     }
@@ -112,4 +125,5 @@ struct CharacterData {
     var isCharacterMax: Bool
     var isRelicsGood: Bool
     var isWeaponGood: Bool
+    var isSelected: Bool = false
 }

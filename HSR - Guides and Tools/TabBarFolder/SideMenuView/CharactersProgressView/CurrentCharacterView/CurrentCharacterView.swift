@@ -15,11 +15,10 @@ enum GroupType: String, CaseIterable {
 }
 
 @available(iOS 14.0, *)
-struct CharacterView: View {
+struct CurrentCharacterView: View {
     @State var character: MockCharacter
     
     var body: some View {
-        NavigationView {
             VStack {
                 GroupBox(
                     label: Text(GroupType.characteristics.rawValue), content: {
@@ -55,15 +54,16 @@ struct CharacterView: View {
             .padding()
             .navigationTitle("Прогресс \(character.name)")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
             .navigationBarItems(
                 leading: Button(action: {
-                    //
+                    
                 }) {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.blackDayNight)
                 }
             )
-        }
+        
     }
 }
 
@@ -86,7 +86,7 @@ struct CharacterView_Preview: PreviewProvider {
 
     static var previews: some View {
         let mockCharacter = MockCharacter(name: "Voloda", icon: Image("default_char"), isBodyOk: true, isChainOk: false, isFeetOk: true, isHandsOk: true, isHeadOk: false, isLevelMax: true, isSphereOk: false, isTraitMax: false, isWeaponOk: true)
-        CharacterView(character: mockCharacter)
+        CurrentCharacterView(character: mockCharacter)
     }
 }
 
