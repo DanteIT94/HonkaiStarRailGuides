@@ -16,6 +16,7 @@ enum GroupType: String, CaseIterable {
 
 @available(iOS 14.0, *)
 struct CurrentCharacterView: View {
+    @Environment (\.presentationMode) var presentationMode
     @State var character: MockCharacter
     
     var body: some View {
@@ -57,7 +58,7 @@ struct CurrentCharacterView: View {
             .navigationBarBackButtonHidden()
             .navigationBarItems(
                 leading: Button(action: {
-                    
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.blackDayNight)

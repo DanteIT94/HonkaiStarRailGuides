@@ -10,6 +10,8 @@ import CoreData
 
 @available(iOS 14.0, *)
 struct CharactersProgressView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var searchText = ""
     
     @State private var characters: [CharacterData] = [
@@ -86,16 +88,15 @@ struct CharactersProgressView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    //
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.blackDayNight)
                 },
                 trailing:
                     HStack(spacing: 15) {
-                        Button(action: {
-                            
-                        }) {
+                        NavigationLink(destination: CharacterAddingView(characters: $characters)) 
+                        {
                             Image(systemName: "plus")
                                 .foregroundColor(.blackDayNight)
                         }

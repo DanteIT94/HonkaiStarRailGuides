@@ -9,10 +9,10 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct CharacterAddingView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var characters: [CharacterData]
     
     var body: some View {
-        NavigationView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                 ForEach(characters.indices, id: \.self) { index in
                     Button(action: {
@@ -36,10 +36,11 @@ struct CharacterAddingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .navigationTitle("Добавь персонажей")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        
+                        self.presentationMode.wrappedValue.dismiss()
                     },
                            label: {
                                Image(systemName: "chevron.backward")
@@ -53,7 +54,6 @@ struct CharacterAddingView: View {
                     }))
             
         }
-    }
 }
 
 @available(iOS 14.0, *)
