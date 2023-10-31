@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CharacterProgressCell: View {
-    var characterImage: Image
+    var characterImageURL: URL?
     var characterName: String
     var isCharacterMax: Bool
     var isRelicsGood: Bool
@@ -19,8 +20,9 @@ struct CharacterProgressCell: View {
             //Подложка
             VStack(spacing: 15){
                 HStack(spacing: 10) {
-                    characterImage
+                    WebImage(url: characterImageURL)
                         .resizable()
+                        .placeholder(Image("default_char"))
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
@@ -59,12 +61,12 @@ struct StatusView: View {
     }
 }
 
-struct CharacterProgressView_Review: PreviewProvider {
-    static var previews: some View {
-        CharacterProgressCell(characterImage: Image("default_char", bundle: nil),
-                              characterName: "Voloda",
-                              isCharacterMax: true,
-                              isRelicsGood: false,
-                              isWeaponGood: true)
-    }
-}
+//struct CharacterProgressView_Review: PreviewProvider {
+//    static var previews: some View {
+//        CharacterProgressCell(characterImage: Image("default_char", bundle: nil),
+//                              characterName: "Voloda",
+//                              isCharacterMax: true,
+//                              isRelicsGood: false,
+//                              isWeaponGood: true)
+//    }
+//}

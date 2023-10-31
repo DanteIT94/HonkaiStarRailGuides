@@ -6,28 +6,46 @@
 //
 
 import SwiftUI
+import CoreData
+import SDWebImageSwiftUI
 
 @available(iOS 14.0, *)
 struct CharacterAddingView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var characters: [CharacterData]
+    @Environment(\.managedObjectContext) var managedObjectContext
+
+    @FetchRequest(
+        entity: CharacterCoreData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \CharacterCoreData.name, 
+                             ascending: true)
+            ]
+    ) private var coreDataCharacters: FetchedResults<CharacterCoreData>
+    
     
     var body: some View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                ForEach(characters.indices, id: \.self) { index in
+                ForEach(coreDataCharacters.indices, id: \.self) { index in
                     Button(action: {
-                        characters[index].isSelected.toggle()
+                        coreDataCharacters[index].isSelectedForAdd.toggle()
+                        do {
+                            try managedObjectContext.save()
+                            checkCoreData()
+                        } catch {
+                            print("Не удалось сохранить контекст")
+                        }
                     }) {
                         HStack {
-                            characters[index].characterImage
+                            WebImage(url: URL(string:  coreDataCharacters[index].iconImageURL ?? ""))
                                 .resizable()
+                                .indicator(.activity)
                                 .frame(width: 50, height: 50)
                                 .padding()
-                            Text(characters[index].characterName)
+                            Text(coreDataCharacters[index].name ?? "Персонаж")
                         }
                         .frame(width: 150, height: 50)
                         .padding()
-                        .border(characters[index].isSelected ? Color.green : Color.gray, width: 2)
+                        .border(coreDataCharacters[index].isSelectedForAdd ? Color.green : Color.gray, width: 2)
                     }
                     
                 }
@@ -54,24 +72,22 @@ struct CharacterAddingView: View {
                     }))
             
         }
-}
+    
+    func checkCoreData() {
+        let fetchRequest: NSFetchRequest<CharacterCoreData> = CharacterCoreData.fetchRequest()
 
-@available(iOS 14.0, *)
-struct CharacterAddingView_Preview: PreviewProvider {
-    
-    static var previews: some View {
-        CharacterAddingView_PreviewContainer()
-    }
-    
-    struct CharacterAddingView_PreviewContainer: View {
-        @State var mockCharacters: [CharacterData] = [
-            CharacterData(characterImage: Image("default_char"), characterName: "Voloda", isCharacterMax: true, isRelicsGood: false, isWeaponGood: true, isSelected: false),
-            CharacterData(characterImage: Image("default_char"), characterName: "Vert", isCharacterMax: true, isRelicsGood: false, isWeaponGood: true, isSelected: true),
-            CharacterData(characterImage: Image("default_char"), characterName: "Alen", isCharacterMax: true, isRelicsGood: false, isWeaponGood: false, isSelected: false),
-        ]
-        
-        var body: some View {
-            CharacterAddingView(characters: $mockCharacters)
+        do {
+            // Выполняем запрос к контексту CoreData
+            let allCharacters = try CoreDataStack.shared.context.fetch(fetchRequest)
+            
+            // Печатаем каждый объект
+            for character in allCharacters {
+                print("ID: \(character.id ?? "N/A"), Name: \(character.name ?? "N/A"), IsSelectedForAdd: \(character.isSelectedForAdd)")
+            }
+            
+        } catch {
+            print("Ошибка при извлечении данных: \(error)")
         }
     }
 }
+

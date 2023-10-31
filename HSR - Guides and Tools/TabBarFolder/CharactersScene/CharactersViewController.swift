@@ -180,7 +180,8 @@ extension CharactersViewController: SideMenuDelegate {
     
     @objc func characterProgressButtonTapped() {
         if #available(iOS 14.0, *) {
-            let progressVC = UIHostingController(rootView: CharactersProgressView())
+            let progressView = CharactersProgressView().environment(\.managedObjectContext, CoreDataStack.shared.context)
+            let progressVC = UIHostingController(rootView: progressView)
             navigationController?.setNavigationBarHidden(true, animated: false)
             navigationController?.pushViewController(progressVC, animated: true)
         } else {

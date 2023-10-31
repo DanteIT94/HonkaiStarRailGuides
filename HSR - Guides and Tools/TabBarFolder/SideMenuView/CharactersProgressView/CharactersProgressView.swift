@@ -12,13 +12,18 @@ import CoreData
 struct CharactersProgressView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @State var showQuestionView = false
     @State private var searchText = ""
     
-    @State private var characters: [CharacterData] = [
-        CharacterData(characterImage: Image("default_char"), characterName: "Voloda", isCharacterMax: true, isRelicsGood: false, isWeaponGood: true),
-        CharacterData(characterImage: Image("default_char"), characterName: "Vert", isCharacterMax: true, isRelicsGood: false, isWeaponGood: true),
-        CharacterData(characterImage: Image("default_char"), characterName: "Alen", isCharacterMax: true, isRelicsGood: false, isWeaponGood: false),
-    ]
+    @FetchRequest(
+        entity: CharacterCoreData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \CharacterCoreData.name,
+                ascending: true)
+        ],
+        predicate: NSPredicate(format: "isSelectedForAdd == %@", NSNumber(value: true))
+    ) private var characters: FetchedResults<CharacterCoreData>
     
     var body: some View {
         NavigationView {
@@ -51,7 +56,7 @@ struct CharactersProgressView: View {
                 
                 //CollectionView
                 if characters.isEmpty {
-                    Text("Вы еще не добавили ваших персонажей")
+                    Text("Вы еще не добавили ваших персонажей \(characters.count)")
                         .foregroundColor(.blackDayNight)
                         .multilineTextAlignment(.center)
                         .padding()
@@ -63,27 +68,22 @@ struct CharactersProgressView: View {
                             .fontWeight(.heavy)
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(characters, id: \.characterName) { character in
-                                NavigationLink(destination:
-                                                CurrentCharacterView(character: MockCharacter(
-                                                    name: character.characterName,
-                                                    icon: character.characterImage,
-                                                    isBodyOk: character.isCharacterMax,
-                                                    isChainOk: character.isRelicsGood,
-                                                    isFeetOk: character.isWeaponGood,
-                                                    isHandsOk: true,
-                                                    isHeadOk: false,
-                                                    isLevelMax: true,
-                                                    isSphereOk: false,
-                                                    isTraitMax: false, isWeaponOk: true))){
-                                                        CharacterProgressCell(characterImage: character.characterImage, characterName: character.characterName, isCharacterMax: character.isCharacterMax, isRelicsGood: character.isRelicsGood, isWeaponGood: character.isWeaponGood)
-                                                    }
+                            ForEach(characters, id: \.id) { character in
+                                NavigationLink(destination: CurrentCharacterView(character: character)) {
+                                    CharacterProgressCell(
+                                        characterImageURL: URL(string: character.iconImageURL ?? ""),
+                                        characterName: character.name ?? "Char",
+                                        isCharacterMax: character.isCharacterMax,
+                                        isRelicsGood: character.isRelicsOk,
+                                        isWeaponGood: character.isWeaponOk
+                                    )
+                                }
                             }
                         }
                     }
-                    .padding()
                 }
             }
+            .padding()
             .navigationTitle("Прогресс Персонажей")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
@@ -95,13 +95,14 @@ struct CharactersProgressView: View {
                 },
                 trailing:
                     HStack(spacing: 15) {
-                        NavigationLink(destination: CharacterAddingView(characters: $characters)) 
+                        NavigationLink(destination: CharacterAddingView()
+                            .environment(\.managedObjectContext, CoreDataStack.shared.context))
                         {
                             Image(systemName: "plus")
                                 .foregroundColor(.blackDayNight)
                         }
                         Button(action: {
-                            
+                            self.showQuestionView.toggle()
                         }) {
                             Image(systemName: "questionmark.circle")
                                 .foregroundColor(.blackDayNight)
@@ -109,8 +110,16 @@ struct CharactersProgressView: View {
                     }
             )
         }
+        .overlay(
+            Group {
+                if showQuestionView {
+                    QuestionView(showQuestionView: $showQuestionView)
+                }
+            })
     }
 }
+
+
 
 @available(iOS 14.0, *)
 struct CharacterProgressView_Preview: PreviewProvider {
@@ -119,12 +128,3 @@ struct CharacterProgressView_Preview: PreviewProvider {
     }
 }
 
-
-struct CharacterData {
-    var characterImage: Image
-    var characterName: String
-    var isCharacterMax: Bool
-    var isRelicsGood: Bool
-    var isWeaponGood: Bool
-    var isSelected: Bool = false
-}

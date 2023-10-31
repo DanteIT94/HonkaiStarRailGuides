@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Character: Codable {
-    var id: String?
+    var id: String
     let name: String
     let elementURL: String
     let fullImageURL: String?

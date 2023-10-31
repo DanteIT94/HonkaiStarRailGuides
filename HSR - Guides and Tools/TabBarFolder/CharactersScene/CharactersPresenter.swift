@@ -31,6 +31,8 @@ final class CharacterPresenter {
     let sortService: SortService
     let filterService: FilterService
     
+    let coreDataManager: CoreDataManager
+    
     var characters: [Character] = []
     let tierOrder: [String: Int] = ["S+": 0, "S": 1, "A": 2, "B": 3, "C": 4]
     
@@ -43,6 +45,7 @@ final class CharacterPresenter {
         self.firebaseManager = FirebaseManager()
         self.filterService = FilterService()
         self.sortService = SortService()
+        self.coreDataManager = CoreDataManager()
     }
 }
 
@@ -56,6 +59,11 @@ extension CharacterPresenter: CharacterPresenterProtocol {
             self?.characters = loadedCharacters.sorted {
                 (self?.tierOrder[$0.basicInfo?.tier ?? ""] ?? 100) < (self?.tierOrder[$1.basicInfo?.tier ?? ""] ?? 100)
             }
+                
+            for character in self?.characters ?? [] {
+                self?.coreDataManager.saveCharacter(character: character)
+            }
+                
             DispatchQueue.main.async {
                 self?.view?.reloadData()
                 self?.progressDelegate?.didLoadCharacters()

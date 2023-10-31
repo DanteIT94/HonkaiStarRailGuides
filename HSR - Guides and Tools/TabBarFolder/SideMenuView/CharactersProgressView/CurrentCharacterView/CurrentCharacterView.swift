@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 enum GroupType: String, CaseIterable {
@@ -17,7 +18,8 @@ enum GroupType: String, CaseIterable {
 @available(iOS 14.0, *)
 struct CurrentCharacterView: View {
     @Environment (\.presentationMode) var presentationMode
-    @State var character: MockCharacter
+    @ObservedObject var character: CharacterCoreData
+    @Environment(\.managedObjectContext) private var moc
     
     var body: some View {
             VStack {
@@ -25,6 +27,8 @@ struct CurrentCharacterView: View {
                     label: Text(GroupType.characteristics.rawValue), content: {
                     VStack {
                         Toggle("is Level Max?", isOn: $character.isLevelMax)
+                            .onChange(of: character.isLevelMax) { _ in
+                            saveChanges()}
                         Toggle("is Traits Max?", isOn: $character.isTraitMax)
                     }
                 })
@@ -53,7 +57,7 @@ struct CurrentCharacterView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Прогресс \(character.name)")
+            .navigationTitle("Прогресс Lbvs")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .navigationBarItems(
@@ -64,40 +68,13 @@ struct CurrentCharacterView: View {
                         .foregroundColor(.blackDayNight)
                 }
             )
-        
+    }
+    
+    func saveChanges() {
+        do {
+            try moc.save()
+        } catch {
+            print("Error in saving datas in CoreData")
+        }
     }
 }
-
-struct MockCharacter {
-    var name: String
-    var icon: Image
-    var isBodyOk: Bool
-    var isChainOk: Bool
-    var isFeetOk: Bool
-    var isHandsOk: Bool
-    var isHeadOk: Bool
-    var isLevelMax: Bool
-    var isSphereOk: Bool
-    var isTraitMax: Bool
-    var isWeaponOk: Bool
-}
-
-@available(iOS 14.0, *)
-struct CharacterView_Preview: PreviewProvider {
-
-    static var previews: some View {
-        let mockCharacter = MockCharacter(name: "Voloda", icon: Image("default_char"), isBodyOk: true, isChainOk: false, isFeetOk: true, isHandsOk: true, isHeadOk: false, isLevelMax: true, isSphereOk: false, isTraitMax: false, isWeaponOk: true)
-        CurrentCharacterView(character: mockCharacter)
-    }
-}
-
-
-
-
-
-//
-//extension CharacterEntity {
-//    func updateCharacteristicsStatus() {
-//        self.
-//    }
-//}
