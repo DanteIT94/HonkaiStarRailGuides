@@ -24,61 +24,26 @@ struct CurrentCharacterView: View {
     
     var body: some View {
         VStack {
-            GroupBox(
-                label: Text(GroupType.characteristics.rawValue), content: {
-                    VStack {
-                        Toggle("is Level Max?", isOn: $character.isLevelMax)
-                            .onChange(of: character.isLevelMax) { _ in
-                                checkAllCharacterToogle()
-                            }
-                        Toggle("is Traits Max?", isOn: $character.isTraitMax)
-                            .onChange(of: character.isLevelMax) { _ in
-                                checkAllCharacterToogle()
-                            }
-                    }
-                })
+            characterGroupBox(type: .characteristics,
+                              toggles: [
+                                ("Is Level Max?", $character.isLevelMax),
+                                ("Is Traits Max?", $character.isTraitMax)],
+                              checkFunction: checkAllCharacterToogle)
             
-            GroupBox(
-                label: Text(GroupType.relics.rawValue),
-                content: {
-                    VStack {
-                        Toggle("is Head Good?", isOn: $character.isHeadOk)
-                            .onChange(of: character.isHeadOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                        Toggle("is Hands Good?", isOn: $character.isHandsOk)
-                            .onChange(of: character.isHandsOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                        Toggle("is Body Good?", isOn: $character.isBodyOk)
-                            .onChange(of: character.isBodyOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                        Toggle("is Feet Good?", isOn: $character.isFeetOk)
-                            .onChange(of: character.isFeetOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                        Toggle("is Sphere Good?", isOn: $character.isSphereOk)
-                            .onChange(of: character.isSphereOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                        Toggle("is Chain Good?", isOn: $character.isChainOk)
-                            .onChange(of: character.isChainOk) { _ in
-                                checkAllRelicsToogle()
-                            }
-                    }
-                })
+            characterGroupBox(type: .relics,
+                              toggles: [
+                                ("Is Head Good?", $character.isHeadOk),
+                                ("Is Hands Good?", $character.isHandsOk),
+                                ("Is Body Good?", $character.isBodyOk),
+                                ("Is Feet Good?", $character.isFeetOk),
+                                ("Is Sphere Good?", $character.isSphereOk),
+                                ("Is Chain Good?", $character.isChainOk)
+                              ], checkFunction: checkAllRelicsToogle)
             
-            GroupBox(
-                label: Text(GroupType.weapon.rawValue),
-                content: {
-                    VStack {
-                        Toggle("is Weapon Good?", isOn: $character.isWeaponOk)
-                            .onChange(of: character.isWeaponOk) { _ in
-                            saveChanges()
-                            }
-                    }
-                })
+            characterGroupBox(type: .weapon,
+                              toggles: [
+                                ("Is Weapon Good?", $character.isWeaponOk)
+                              ], checkFunction: saveChanges)
             
             Spacer()
         }
@@ -104,6 +69,31 @@ struct CurrentCharacterView: View {
         }
     }
     
+    //Параметризация UI-элементов
+    func characterGroupBox(type: GroupType, toggles: [(String, Binding<Bool>)], checkFunction: @escaping () -> Void) -> some View {
+        GroupBox(
+            label: Text(type.rawValue),
+            content: {
+                VStack {
+                    ForEach(toggles, id: \.0) { label, isOn in
+                        customToggle(label: label, isOn: isOn, action: checkFunction)
+                    }
+                }
+            }
+        )
+    }
+    
+    func customToggle(label: String, isOn: Binding<Bool>, action: @escaping () -> Void) -> some View {
+        Toggle(label, isOn: isOn)
+            .onChange(of: isOn.wrappedValue) { _ in
+                action()
+            }
+    }
+    
+    
+    
+    //
+    
     func checkAllRelicsToogle() {
         let relicsState = [character.isHeadOk,
                            character.isHandsOk,
@@ -128,3 +118,4 @@ struct CurrentCharacterView: View {
     
     
 }
+
