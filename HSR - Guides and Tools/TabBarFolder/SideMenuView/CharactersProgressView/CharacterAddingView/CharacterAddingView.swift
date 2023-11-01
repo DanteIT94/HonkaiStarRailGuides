@@ -13,17 +13,18 @@ import SDWebImageSwiftUI
 struct CharacterAddingView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
-
+    
     @FetchRequest(
         entity: CharacterCoreData.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \CharacterCoreData.name, 
+            NSSortDescriptor(keyPath: \CharacterCoreData.name,
                              ascending: true)
-            ]
+        ]
     ) private var coreDataCharacters: FetchedResults<CharacterCoreData>
     
     
     var body: some View {
+        ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                 ForEach(coreDataCharacters.indices, id: \.self) { index in
                     Button(action: {
@@ -43,7 +44,7 @@ struct CharacterAddingView: View {
                                 .padding()
                             Text(coreDataCharacters[index].name ?? "Персонаж")
                         }
-                        .frame(width: 150, height: 50)
+                        .frame(width: 130, height: 50)
                         .padding()
                         .border(coreDataCharacters[index].isSelectedForAdd ? Color.green : Color.gray, width: 2)
                     }
@@ -66,16 +67,18 @@ struct CharacterAddingView: View {
                 trailing:
                     Button(action: {
                         
-                    }, 
+                    },
                            label: {
-                        Text("Сохранить")
-                    }))
+                               Text("Сохранить")
+                           }))
             
         }
+        
+    }
     
     func checkCoreData() {
         let fetchRequest: NSFetchRequest<CharacterCoreData> = CharacterCoreData.fetchRequest()
-
+        
         do {
             // Выполняем запрос к контексту CoreData
             let allCharacters = try CoreDataStack.shared.context.fetch(fetchRequest)
