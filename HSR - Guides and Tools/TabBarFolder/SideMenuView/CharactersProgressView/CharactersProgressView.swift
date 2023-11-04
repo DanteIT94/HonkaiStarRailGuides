@@ -22,8 +22,18 @@ struct CharactersProgressView: View {
                 keyPath: \CharacterCoreData.name,
                 ascending: true)
         ],
+        predicate: NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
+    ) private var favouriteCharacters: FetchedResults<CharacterCoreData>
+    
+    @FetchRequest(
+        entity: CharacterCoreData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \CharacterCoreData.name,
+                ascending: true)
+        ],
         predicate: NSPredicate(format: "isSelectedForAdd == %@", NSNumber(value: true))
-    ) private var characters: FetchedResults<CharacterCoreData>
+    ) private var myCharacters: FetchedResults<CharacterCoreData>
     
     var body: some View {
         NavigationView {
@@ -54,29 +64,53 @@ struct CharactersProgressView: View {
                     )
                     .padding(.horizontal, 10)
                 
-                //CollectionView
-                if characters.isEmpty {
-                    Text("Вы еще не добавили ваших персонажей \(characters.count)")
+                //                CollectionView
+                if myCharacters.isEmpty {
+                    Text("Вы еще не добавили ваших персонажей")
                         .foregroundColor(.blackDayNight)
                         .multilineTextAlignment(.center)
                         .padding()
                     Spacer()
                 } else {
                     ScrollView {
-                        Text("Мои Персонажи")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                        if !favouriteCharacters.isEmpty {
+                            Text("Избранные")
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                            
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                                ForEach(favouriteCharacters, id: \.id) { character in
+//                                    Text("Количество избранных персонажей: \(favouriteCharacters.count)")
+                                    NavigationLink(destination: CurrentCharacterView(character: character)) {
+                                        CharacterProgressCell(
+                                            characterImageURL: URL(string: character.iconImageURL ?? ""),
+                                            characterName: character.name ?? "Char",
+                                            isCharacterMax: character.isCharacterMax,
+                                            isRelicsGood: character.isRelicsOk,
+                                            isWeaponGood: character.isWeaponOk
+                                        )
+                                    }
+                                }
+                            }
+                        }
                         
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(characters, id: \.id) { character in
-                                NavigationLink(destination: CurrentCharacterView(character: character)) {
-                                    CharacterProgressCell(
-                                        characterImageURL: URL(string: character.iconImageURL ?? ""),
-                                        characterName: character.name ?? "Char",
-                                        isCharacterMax: character.isCharacterMax,
-                                        isRelicsGood: character.isRelicsOk,
-                                        isWeaponGood: character.isWeaponOk
-                                    )
+                        if !myCharacters.isEmpty {
+                            Text("Мои Персонажи")
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                            
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                                ForEach(myCharacters, id: \.id) { character in
+//                                    Text("Количество  моих персонажей: \(myCharacters.count)")
+                                    NavigationLink(destination: CurrentCharacterView(character: character)) {
+                                        CharacterProgressCell(
+                                            characterImageURL: URL(string: character.iconImageURL ?? ""),
+                                            characterName: character.name ?? "Char",
+                                            isCharacterMax: character.isCharacterMax,
+                                            isRelicsGood: character.isRelicsOk,
+                                            isWeaponGood: character.isWeaponOk
+                                        )
+                                    }
                                 }
                             }
                         }

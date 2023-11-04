@@ -85,7 +85,7 @@ struct CharacterAddingView: View {
             
             // Печатаем каждый объект
             for character in allCharacters {
-                print("ID: \(character.id ?? "N/A"), Name: \(character.name ?? "N/A"), IsSelectedForAdd: \(character.isSelectedForAdd)")
+                print("ID: \(character.id ?? "N/A"), Name: \(character.name ?? "N/A"), IsSelectedForAdd: \(character.isSelectedForAdd), IsFavorite: \(character.isFavorite)")
             }
             
         } catch {

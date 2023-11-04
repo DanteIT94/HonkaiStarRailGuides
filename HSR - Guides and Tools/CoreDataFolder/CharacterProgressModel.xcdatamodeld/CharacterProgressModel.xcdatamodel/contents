@@ -6,6 +6,7 @@
         <attribute name="isBodyOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isChainOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isCharacterMax" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isFeetOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isHandsOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isHeadOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

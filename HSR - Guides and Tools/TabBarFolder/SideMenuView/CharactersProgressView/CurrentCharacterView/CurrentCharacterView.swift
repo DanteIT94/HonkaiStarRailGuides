@@ -91,9 +91,6 @@ struct CurrentCharacterView: View {
     }
     
     
-    
-    //
-    
     func checkAllRelicsToogle() {
         let relicsState = [character.isHeadOk,
                            character.isHandsOk,
