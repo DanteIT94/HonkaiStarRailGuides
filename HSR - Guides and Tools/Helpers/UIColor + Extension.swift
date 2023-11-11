@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIColor {
     static let colorSection1 = UIColor(named: "Colorselection1")
@@ -43,4 +44,18 @@ extension UIColor {
     static let greenUni = UIColor(named: "GreenUni") ?? .green
     static let redUni = UIColor(named: "RedUni") ?? .red
     static let yellowUni = UIColor(named: "YellowUni") ?? .yellow
+}
+
+extension Color {
+    static let backgroundUni = Color(UIColor.backgroundUni)
+    static let whiteDayNight = Color(UIColor.whiteDayNight)
+    static let blackDayNight = Color(UIColor.blackDayNight)
+    static let lightGreyDayNight = Color(UIColor.lightGreyDayNight)
+    static let blackUni = Color(UIColor.blackUni)
+    static let whiteUni = Color(UIColor.whiteUni)
+    static let blueUni = Color(UIColor.blueUni)
+    static let greyUni = Color(UIColor.greyUni)
+    static let greenUni = Color(UIColor.greenUni)
+    static let redUni = Color(UIColor.redUni)
+    static let yellowUni = Color(UIColor.yellowUni)
 }

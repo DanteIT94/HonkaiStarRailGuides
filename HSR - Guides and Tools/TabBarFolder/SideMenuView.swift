@@ -10,6 +10,7 @@ import UIKit
 protocol SideMenuDelegate: AnyObject {
     func sideMenuToggleRequested()
     func resourceButtonTapped()
+    func characterProgressButtonTapped()
     func didOpenMenu()
     func didCloseMenu()
 }
@@ -25,7 +26,7 @@ final class SideMenu {
         createSideMenu(in: view)
     }
     
-    private func createSideMenu(in view: UIView) {
+    func createSideMenu(in view: UIView) {
         let menu = UIView()
         menu.backgroundColor = .whiteDayNight
         menu.frame = CGRect(x: -sideMenuWidth, y: 0, width: sideMenuWidth, height: view.frame.height)
@@ -60,11 +61,12 @@ final class SideMenu {
         delegate?.didCloseMenu()
     }
     
-    func addResourceButton(with traitCollection: UITraitCollection) {
+    //Добавление кнопок на СайдМеню
+    func addButton(title: String, x: CGFloat, y: CGFloat, action: Selector, traitCollection: UITraitCollection) {
         let button = UIButton(type: .system)
-        button.setTitle("Счетчик Энергии", for: .normal)
+        button.setTitle(title, for: .normal)
         button.setTitleColor(.whiteDayNight, for: .normal)
-        button.addTarget(self, action: #selector(resourceButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: action, for: .touchUpInside)
         
         button.backgroundColor = .blackDayNight
         button.layer.cornerRadius = 10
@@ -80,14 +82,18 @@ final class SideMenu {
         button.layer.shadowOpacity = 0.5
         
         //задаем размер
-        button.frame = CGRect(x: 20, y: 100, width: 150, height: 50)
+        button.frame = CGRect(x: x, y: y, width: 150, height: 50)
         
         //Добавляем на Вьюху
         sideMenuView?.addSubview(button)
     }
     
-    
     @objc private func resourceButtonTapped() {
         delegate?.resourceButtonTapped()
     }
+    
+    @objc private func characterProgressButtonTapped() {
+        delegate?.characterProgressButtonTapped()
+    }
+    
 }

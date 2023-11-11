@@ -61,6 +61,20 @@ struct EnergyView: View {
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("energyFull"), object: nil, queue: .main) { _ in
                     self.energyValue = "240"
                 }
+                let notificationCenter = NotificationCenter.default
+                notificationCenter.addObserver(
+                    forName: UIApplication.willResignActiveNotification,
+                    object: nil,
+                    queue: .main) { _ in
+                        print("Ушел в Фон")
+                    self.lastUpdateTime = Date().timeIntervalSince1970
+                }
+                notificationCenter.addObserver(
+                    forName: UIApplication.didBecomeActiveNotification,
+                    object: nil, queue: .main) { _ in
+                        print("открылся")
+                        self.updateEnergy()
+                }
             }
             .onReceive(timer) { _ in
                 updateEnergy()

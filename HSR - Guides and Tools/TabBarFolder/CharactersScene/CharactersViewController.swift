@@ -41,8 +41,10 @@ class CharactersViewController: UIViewController {
     private var leftButton: UIBarButtonItem?
     
     private var sideMenu: SideMenu?
+    
     var appMetric = AppMetrics()
     private let appMetricScreenName = "CharactersListVC"
+    
     var presenter: CharacterPresenterProtocol?
     private var characters: [Character] = []
     
@@ -57,7 +59,13 @@ class CharactersViewController: UIViewController {
         configureCharacterTableView()
         presenter?.viewDidLoad()
         sideMenu = SideMenu(delegate: self, in: view)
-        sideMenu?.addResourceButton(with: traitCollection)
+        sideMenu?.addButton(title: "Счетчик энергии", x: 30, y: 120, action: #selector(resourceButtonTapped), traitCollection: traitCollection)
+        sideMenu?.addButton(title: "Мои Персонажи", x: 30, y: 200, action: #selector(characterProgressButtonTapped), traitCollection: traitCollection)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -125,9 +133,6 @@ class CharactersViewController: UIViewController {
         SKStoreReviewController.requestReview()
     }
     
-//    @objc private func scrollMenuButtonTapped() {
-//        
-//    }
     
     @objc private func sortButtonTapped() {
         appMetric.reportEvent(screen: appMetricScreenName, event: .click, item: .sortButtonTap)
@@ -164,12 +169,23 @@ extension CharactersViewController: SideMenuDelegate {
         toogleSideMenu()
     }
     
-    func resourceButtonTapped() {
+    @objc func resourceButtonTapped() {
         if #available(iOS 15.0, *) {
             let energyVC = UIHostingController(rootView: EnergyView())
             navigationController?.pushViewController(energyVC, animated: true)
         } else {
             // Fallback on earlier versions
+        }
+    }
+    
+    @objc func characterProgressButtonTapped() {
+        if #available(iOS 14.0, *) {
+            let progressView = CharactersProgressView().environment(\.managedObjectContext, CoreDataStack.shared.context)
+            let progressVC = UIHostingController(rootView: progressView)
+            navigationController?.setNavigationBarHidden(true, animated: false)
+            navigationController?.pushViewController(progressVC, animated: true)
+        } else {
+            //
         }
     }
     

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterCoreData" representedClassName="CharacterCoreData" syncable="YES" codeGenerationType="class">
+        <attribute name="iconImageURL" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isBodyOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isChainOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCharacterMax" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFeetOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isHandsOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isHeadOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isLevelMax" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRelicsOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSelectedForAdd" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSphereOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTraitMax" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isWeaponOk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupCoreData" inverseName="characters" inverseEntity="GroupCoreData"/>
+    </entity>
+    <entity name="GroupCoreData" representedClassName="GroupCoreData" syncable="YES" codeGenerationType="class">
+        <attribute name="groupName" optional="YES" attributeType="String"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterCoreData" inverseName="group" inverseEntity="CharacterCoreData"/>
+    </entity>
+</model>
