@@ -9,6 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CharacterProgressCell: View {
+    
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    var character: CharacterCoreData
+    
     var characterImageURL: URL?
     var characterName: String
     var isCharacterMax: Bool
@@ -37,13 +41,41 @@ struct CharacterProgressCell: View {
             .cornerRadius(10)
             
             Button(action: {
-                
+                self.toogleFavoriteStatus(character: character)
             }) {
-                Text("Add to favorites")
+                Text(character.isFavorite ? "Delete from Fav." : "Add to Fav.")
             }
         }
-
     }
+    
+    func toogleFavoriteStatus(character: CharacterCoreData) {
+        character.isFavorite.toggle()
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    }
+//    
+//    func addToFavorites(character: CharacterCoreData) {
+//        character.isFavorite = true
+//        do {
+//            try managedObjectContext.save()
+//        } catch {
+//            print("\(error.localizedDescription)")
+//        }
+//    }
+//    
+//    func deleteFromFavorites(character: CharacterCoreData) {
+//        character.isFavorite = false
+//        do {
+//            try managedObjectContext.save()
+//        } catch {
+//            print("\(error.localizedDescription)")
+//        }
+//    }
+    
 }
 
 struct StatusView: View {

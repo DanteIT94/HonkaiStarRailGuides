@@ -59,8 +59,8 @@ class CharactersViewController: UIViewController {
         configureCharacterTableView()
         presenter?.viewDidLoad()
         sideMenu = SideMenu(delegate: self, in: view)
-        sideMenu?.addButton(title: "Счетчик энергии", x: 30, y: 100, action: #selector(resourceButtonTapped), traitCollection: traitCollection)
-        sideMenu?.addButton(title: "Прогресс Персонажа", x: 30, y: 200, action: #selector(characterProgressButtonTapped), traitCollection: traitCollection)
+        sideMenu?.addButton(title: "Счетчик энергии", x: 30, y: 120, action: #selector(resourceButtonTapped), traitCollection: traitCollection)
+        sideMenu?.addButton(title: "Мои Персонажи", x: 30, y: 200, action: #selector(characterProgressButtonTapped), traitCollection: traitCollection)
     }
     
     override func viewWillAppear(_ animated: Bool) {

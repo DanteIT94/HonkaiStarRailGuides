@@ -533,70 +533,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "925F07CD-1B6E-4B1E-AAA5-AAD2B79E9A38"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "favouriteCharacters"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3324CB38-5F9A-498B-9378-2C77D0CA7A27"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "favouriteCharacters"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "3324CB38-5F9A-498B-9378-2C77D0CA7A27 - 840c1e06bdcba761"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HSR___Guides_and_Tools.CharactersProgressView.init(presentationMode: SwiftUI.Environment&lt;SwiftUI.Binding&lt;SwiftUI.PresentationMode&gt;&gt;, showQuestionView: Swift.Bool) -&gt; HSR___Guides_and_Tools.CharactersProgressView"
-                  moduleName = "HSR - Guides and Tools"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "348">
-               </Location>
-               <Location
-                  uuid = "3324CB38-5F9A-498B-9378-2C77D0CA7A27 - 840c1e06bdcba761"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HSR___Guides_and_Tools.CharactersProgressView.init(presentationMode: SwiftUI.Environment&lt;SwiftUI.Binding&lt;SwiftUI.PresentationMode&gt;&gt;, showQuestionView: Swift.Bool) -&gt; HSR___Guides_and_Tools.CharactersProgressView"
-                  moduleName = "HSR - Guides and Tools"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "356">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F0BAA920-2F68-49C7-99F2-038F5C67CA0D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -604,8 +540,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -620,8 +556,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -636,8 +572,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -652,8 +588,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -700,8 +636,8 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -748,40 +684,55 @@
             filePath = "HSR - Guides and Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "F9D9C7C4-D669-45E1-AFE1-F5AFA6CE4D80 - f5b71bd626d0c7ca"
+                  uuid = "F9D9C7C4-D669-45E1-AFE1-F5AFA6CE4D80 - 3e97ad67c493e98c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (HSR___Guides_and_Tools.CharacterCoreData) -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt;)&gt;&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUI.View, &#x3c4;_1_1: SwiftUI.View&gt;(leading: &#x3c4;_1_0, trailing: &#x3c4;_1_1) -&gt; some&gt;&gt;.0 in HSR___Guides_and_Tools.CharactersProgressView.body.getter : some"
+                  symbolName = "closure #1 () -&gt; HSR___Guides_and_Tools.CharacterProgressCell in closure #1 (HSR___Guides_and_Tools.CharacterCoreData) -&gt; SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt;&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUI.View, &#x3c4;_1_1: SwiftUI.View&gt;(leading: &#x3c4;_1_0, trailing: &#x3c4;_1_1) -&gt; some&gt;&gt;.0 in HSR___Guides_and_Tools.CharactersProgressView.body.getter : some"
                   moduleName = "HSR - Guides and Tools"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "868">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "852">
                </Location>
                <Location
-                  uuid = "F9D9C7C4-D669-45E1-AFE1-F5AFA6CE4D80 - b6e3f96727304250"
+                  uuid = "F9D9C7C4-D669-45E1-AFE1-F5AFA6CE4D80 - af3e6dc3ccb1a4f7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;, SwiftUI.ScrollView&lt;Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;)&gt;&gt;&gt;)&gt;&gt;&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUI.View, &#x3c4;_1_1: SwiftUI.View&gt;(leading: &#x3c4;_1_0, trailing: &#x3c4;_1_1) -&gt; some&gt;&gt;.0 in HSR___Guides_and_Tools.CharactersProgressView.body.getter : some"
+                  symbolName = "closure #1 (HSR___Guides_and_Tools.CharacterCoreData) -&gt; SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt;&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUI.View, &#x3c4;_1_1: SwiftUI.View&gt;(leading: &#x3c4;_1_0, trailing: &#x3c4;_1_1) -&gt; some&gt;&gt;.0 in HSR___Guides_and_Tools.CharactersProgressView.body.getter : some"
                   moduleName = "HSR - Guides and Tools"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "476">
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "F9D9C7C4-D669-45E1-AFE1-F5AFA6CE4D80 - 3e97ad67c493e82f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; HSR___Guides_and_Tools.CharacterProgressCell in closure #1 (HSR___Guides_and_Tools.CharacterCoreData) -&gt; SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;, Swift.Optional&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;HSR___Guides_and_Tools.CharacterCoreData&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;HSR___Guides_and_Tools.CharacterProgressCell, HSR___Guides_and_Tools.CurrentCharacterView&gt;&gt;&gt;)&gt;&gt;)&gt;&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUI.View, &#x3c4;_1_1: SwiftUI.View&gt;(leading: &#x3c4;_1_0, trailing: &#x3c4;_1_1) -&gt; some&gt;&gt;.0 in HSR___Guides_and_Tools.CharactersProgressView.body.getter : some"
+                  moduleName = "HSR - Guides and Tools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/denis/Desktop/HSR%20-%20Guides/HSR%20-%20Guides%20and%20Tools/HSR%20-%20Guides%20and%20Tools/TabBarFolder/SideMenuView/CharactersProgressView/CharactersProgressView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "204">
                </Location>
             </Locations>
          </BreakpointContent>

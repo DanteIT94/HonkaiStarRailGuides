@@ -14,26 +14,34 @@ struct CharactersProgressView: View {
     
     @State var showQuestionView = false
     @State private var searchText = ""
+    @FetchRequest private var favoriteCharacters: FetchedResults<CharacterCoreData>
+    @FetchRequest private var myCharacters: FetchedResults<CharacterCoreData>
     
-    @FetchRequest(
-        entity: CharacterCoreData.entity(),
-        sortDescriptors: [
+    init() {
+//        let predicateIsSelectedForAdd = NSPredicate(format: "isSelectedForAdd == %@", NSNumber(value: true))
+//        let predicateIsNotFavorite = NSPredicate(format: "inFavorite == %@", NSNumber(value: false))
+//        
+//        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateIsSelectedForAdd, predicateIsNotFavorite])
+        
+        _myCharacters = FetchRequest<CharacterCoreData>(
+            entity: CharacterCoreData.entity(),
+            sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \CharacterCoreData.name,
+                ascending: true)],
+        predicate: NSPredicate(format: "isFavorite == %@ AND isSelectedForAdd == %@", NSNumber(value: false), NSNumber(true)))
+        
+        _favoriteCharacters = FetchRequest<CharacterCoreData>(
+            entity: CharacterCoreData.entity(),
+            sortDescriptors: [
             NSSortDescriptor(
                 keyPath: \CharacterCoreData.name,
                 ascending: true)
-        ],
-        predicate: NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
-    ) private var favouriteCharacters: FetchedResults<CharacterCoreData>
+            ],
+            predicate: NSPredicate(format: "isFavorite == %@ AND isSelectedForAdd == %@", NSNumber(value: true), NSNumber(value: true)))
+        
+    }
     
-    @FetchRequest(
-        entity: CharacterCoreData.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(
-                keyPath: \CharacterCoreData.name,
-                ascending: true)
-        ],
-        predicate: NSPredicate(format: "isSelectedForAdd == %@", NSNumber(value: true))
-    ) private var myCharacters: FetchedResults<CharacterCoreData>
     
     var body: some View {
         NavigationView {
@@ -73,16 +81,17 @@ struct CharactersProgressView: View {
                     Spacer()
                 } else {
                     ScrollView {
-                        if !favouriteCharacters.isEmpty {
+                        if !favoriteCharacters.isEmpty {
                             Text("Избранные")
                                 .font(.headline)
                                 .fontWeight(.heavy)
                             
                             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                                ForEach(favouriteCharacters, id: \.id) { character in
+                                ForEach(favoriteCharacters, id: \.id) { character in
 //                                    Text("Количество избранных персонажей: \(favouriteCharacters.count)")
                                     NavigationLink(destination: CurrentCharacterView(character: character)) {
                                         CharacterProgressCell(
+                                            character: character,
                                             characterImageURL: URL(string: character.iconImageURL ?? ""),
                                             characterName: character.name ?? "Char",
                                             isCharacterMax: character.isCharacterMax,
@@ -104,6 +113,7 @@ struct CharactersProgressView: View {
 //                                    Text("Количество  моих персонажей: \(myCharacters.count)")
                                     NavigationLink(destination: CurrentCharacterView(character: character)) {
                                         CharacterProgressCell(
+                                            character: character,
                                             characterImageURL: URL(string: character.iconImageURL ?? ""),
                                             characterName: character.name ?? "Char",
                                             isCharacterMax: character.isCharacterMax,

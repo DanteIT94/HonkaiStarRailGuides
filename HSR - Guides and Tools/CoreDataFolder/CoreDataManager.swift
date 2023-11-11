@@ -33,6 +33,8 @@ class CoreDataManager {
         
         characterCD.id = character.id
         
+        characterCD.isFavorite = false
+        
         characterCD.name = character.name
         
         characterCD.iconImageURL = character.iconImageURL

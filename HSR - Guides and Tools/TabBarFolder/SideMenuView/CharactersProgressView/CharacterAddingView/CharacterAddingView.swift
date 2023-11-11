@@ -36,18 +36,27 @@ struct CharacterAddingView: View {
                             print("Не удалось сохранить контекст")
                         }
                     }) {
-                        HStack {
+                        HStack(alignment: .center, spacing: 10)  {
                             WebImage(url: URL(string:  coreDataCharacters[index].iconImageURL ?? ""))
                                 .resizable()
                                 .indicator(.activity)
                                 .frame(width: 50, height: 50)
-                                .padding()
+                                .clipShape(Circle())
+                                .padding(.leading, 5)
                             Text(coreDataCharacters[index].name ?? "Персонаж")
+                                .foregroundColor(Color.whiteDayNight)
+                                
                         }
-                        .frame(width: 130, height: 50)
+                        .frame(width: 130, height: 50, alignment: .leading)
                         .padding()
-                        .border(coreDataCharacters[index].isSelectedForAdd ? Color.green : Color.gray, width: 2)
+                        
                     }
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(coreDataCharacters[index].isSelectedForAdd ? Color.green : Color.gray, lineWidth: 4)
+                    )
                     
                 }
             }
@@ -63,17 +72,9 @@ struct CharacterAddingView: View {
                     },
                            label: {
                                Image(systemName: "chevron.backward")
-                           }),
-                trailing:
-                    Button(action: {
-                        
-                    },
-                           label: {
-                               Text("Сохранить")
-                           }))
-            
+                           })
+                )
         }
-        
     }
     
     func checkCoreData() {

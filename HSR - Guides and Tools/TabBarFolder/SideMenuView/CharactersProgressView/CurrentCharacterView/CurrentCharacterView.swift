@@ -48,7 +48,7 @@ struct CurrentCharacterView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Прогресс Lbvs")
+        .navigationTitle("Прогресс \(self.character.name ?? "Персонаж")")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden()
         .navigationBarItems(
@@ -99,7 +99,6 @@ struct CurrentCharacterView: View {
                            character.isSphereOk,
                            character.isChainOk
         ]
-        
         character.isRelicsOk = relicsState.allSatisfy { $0 }
         saveChanges()
     }
@@ -108,7 +107,6 @@ struct CurrentCharacterView: View {
         let characterState = [character.isLevelMax,
                               character.isTraitMax
         ]
-        
         character.isCharacterMax = characterState.allSatisfy { $0 }
         saveChanges()
     }

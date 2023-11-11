@@ -9,11 +9,11 @@ import SDWebImage
 
 
 final class CharacterCell: UITableViewCell {
-//    let cellUIView: UIView = UIView().then { view in
-//    }
+
     
     let cellUIView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         view.layer.shadowColor = UIColor.blackDayNight.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowRadius = 4
@@ -106,7 +106,6 @@ final class CharacterCell: UITableViewCell {
         ])
     }
     
-    //ОСТАНОВИЛСЯ ТУТ + Смотри в ЧАТ ГПТ)
     func configure(with character: Character) {
         characterName.text = character.name
         
@@ -122,7 +121,6 @@ final class CharacterCell: UITableViewCell {
             $0.clipsToBounds = true
         }
         
-        cellUIView.backgroundColor = .white
     }
     
 }

@@ -272,6 +272,7 @@
 			children = (
 				9266D21C2A8CC6A50020D766 /* TabBarViewController.swift */,
 				929F91CE2AE02B3E003042BB /* SideMenuView */,
+				929F91CF2AE02B59003042BB /* SideMenuView.swift */,
 				9266D21A2A8CC4AD0020D766 /* CharactersScene */,
 				9266D21B2A8CC4C50020D766 /* OptionsViewController */,
 			);
@@ -341,7 +342,6 @@
 			children = (
 				92609C792AEA804E00406997 /* CharactersProgressView */,
 				929F91D12AE12DA0003042BB /* PowerReplenishScene */,
-				929F91CF2AE02B59003042BB /* SideMenuView.swift */,
 			);
 			path = SideMenuView;
 			sourceTree = "<group>";
